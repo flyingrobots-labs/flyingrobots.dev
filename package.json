@@ -11,8 +11,7 @@
     "test:local": "vitest run",
     "test:watch": "vitest watch",
     "test:docker": "vitest run --reporter=json --reporter=junit --outputFile.json=test-results/results.json --outputFile.junit=test-results/junit.xml --coverage",
-    "test:coverage": "vitest run --coverage",
-    "prepare": "husky install"
+    "test:coverage": "vitest run --coverage"
   },
   "keywords": [],
   "author": "",
