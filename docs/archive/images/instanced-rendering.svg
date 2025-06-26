@@ -1,0 +1,177 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="memGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498db;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#2980b9;stop-opacity:0.8" />
+    </linearGradient>
+    <linearGradient id="instanceGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#27ae60;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#229954;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold">
+    Instanced Rendering vs Traditional Rendering
+  </text>
+  
+  <!-- Traditional Rendering -->
+  <g transform="translate(200, 150)">
+    <text x="0" y="-20" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold">
+      Traditional Rendering
+    </text>
+    
+    <!-- Multiple mesh objects -->
+    <g transform="translate(-100, 20)">
+      <!-- Mesh 1 -->
+      <rect x="0" y="0" width="60" height="80" fill="#e74c3c" fill-opacity="0.7" stroke="#c0392b" stroke-width="2" rx="5"/>
+      <text x="30" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Mesh 1</text>
+      <text x="30" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Geometry</text>
+      <text x="30" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Material</text>
+      <text x="30" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Transform</text>
+      
+      <!-- Mesh 2 -->
+      <rect x="70" y="0" width="60" height="80" fill="#f39c12" fill-opacity="0.7" stroke="#d68910" stroke-width="2" rx="5"/>
+      <text x="100" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Mesh 2</text>
+      <text x="100" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Geometry</text>
+      <text x="100" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Material</text>
+      <text x="100" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Transform</text>
+      
+      <!-- Mesh 3 -->
+      <rect x="140" y="0" width="60" height="80" fill="#9b59b6" fill-opacity="0.7" stroke="#8e44ad" stroke-width="2" rx="5"/>
+      <text x="170" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Mesh 3</text>
+      <text x="170" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Geometry</text>
+      <text x="170" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Material</text>
+      <text x="170" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Transform</text>
+    </g>
+    
+    <!-- Draw calls -->
+    <g transform="translate(-50, 120)">
+      <rect x="0" y="0" width="30" height="20" fill="#333" rx="3"/>
+      <text x="15" y="14" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">DC</text>
+      
+      <rect x="35" y="0" width="30" height="20" fill="#333" rx="3"/>
+      <text x="50" y="14" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">DC</text>
+      
+      <rect x="70" y="0" width="30" height="20" fill="#333" rx="3"/>
+      <text x="85" y="14" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">DC</text>
+      
+      <text x="50" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">
+        3 Draw Calls
+      </text>
+    </g>
+    
+    <!-- Memory usage -->
+    <g transform="translate(-80, 180)">
+      <rect x="0" y="0" width="160" height="30" fill="none" stroke="#666" stroke-width="2" rx="5"/>
+      <rect x="0" y="0" width="53" height="30" fill="#e74c3c" fill-opacity="0.5" rx="5"/>
+      <rect x="53" y="0" width="53" height="30" fill="#f39c12" fill-opacity="0.5" rx="5"/>
+      <rect x="106" y="0" width="54" height="30" fill="#9b59b6" fill-opacity="0.5" rx="5"/>
+      <text x="80" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">
+        3x Memory Usage
+      </text>
+    </g>
+  </g>
+  
+  <!-- Instanced Rendering -->
+  <g transform="translate(600, 150)">
+    <text x="0" y="-20" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold">
+      Instanced Rendering
+    </text>
+    
+    <!-- Single instanced mesh -->
+    <g transform="translate(-100, 20)">
+      <!-- Base mesh -->
+      <rect x="70" y="0" width="60" height="80" fill="url(#memGradient)" stroke="#2980b9" stroke-width="2" rx="5"/>
+      <text x="100" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Instanced</text>
+      <text x="100" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">1x Geometry</text>
+      <text x="100" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">1x Material</text>
+      <text x="100" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">N Transforms</text>
+      
+      <!-- Instance data -->
+      <g transform="translate(140, 10)">
+        <rect x="0" y="0" width="40" height="15" fill="url(#instanceGradient)" stroke="#229954" stroke-width="1" rx="3"/>
+        <text x="20" y="11" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">T1</text>
+        
+        <rect x="0" y="20" width="40" height="15" fill="url(#instanceGradient)" stroke="#229954" stroke-width="1" rx="3"/>
+        <text x="20" y="31" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">T2</text>
+        
+        <rect x="0" y="40" width="40" height="15" fill="url(#instanceGradient)" stroke="#229954" stroke-width="1" rx="3"/>
+        <text x="20" y="51" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">T3</text>
+      </g>
+    </g>
+    
+    <!-- Single draw call -->
+    <g transform="translate(-50, 120)">
+      <rect x="35" y="0" width="30" height="20" fill="#27ae60" rx="3"/>
+      <text x="50" y="14" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">DC</text>
+      
+      <text x="50" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#27ae60" font-weight="bold">
+        1 Draw Call
+      </text>
+    </g>
+    
+    <!-- Memory usage -->
+    <g transform="translate(-80, 180)">
+      <rect x="0" y="0" width="160" height="30" fill="none" stroke="#666" stroke-width="2" rx="5"/>
+      <rect x="0" y="0" width="80" height="30" fill="#3498db" fill-opacity="0.5" rx="5"/>
+      <rect x="80" y="0" width="30" height="30" fill="#27ae60" fill-opacity="0.5" rx="5"/>
+      <text x="80" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#27ae60" font-weight="bold">
+        ~40% Memory Saved
+      </text>
+    </g>
+  </g>
+  
+  <!-- Performance comparison -->
+  <g transform="translate(400, 420)">
+    <text x="0" y="0" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold">
+      Performance Impact
+    </text>
+    
+    <!-- Chart -->
+    <g transform="translate(-150, 20)">
+      <!-- Axes -->
+      <line x1="0" y1="100" x2="300" y2="100" stroke="#333" stroke-width="2"/>
+      <line x1="0" y1="0" x2="0" y2="100" stroke="#333" stroke-width="2"/>
+      
+      <!-- Y-axis labels -->
+      <text x="-10" y="5" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#666">60fps</text>
+      <text x="-10" y="55" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#666">30fps</text>
+      <text x="-10" y="105" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#666">0fps</text>
+      
+      <!-- X-axis labels -->
+      <text x="50" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">100</text>
+      <text x="150" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">1000</text>
+      <text x="250" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">10000</text>
+      <text x="150" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">Number of Objects</text>
+      
+      <!-- Traditional line -->
+      <path d="M 0,20 L 50,30 L 100,50 L 150,80 L 200,95 L 250,98" 
+            fill="none" stroke="#e74c3c" stroke-width="3"/>
+      <circle cx="0" cy="20" r="3" fill="#e74c3c"/>
+      <circle cx="50" cy="30" r="3" fill="#e74c3c"/>
+      <circle cx="100" cy="50" r="3" fill="#e74c3c"/>
+      <circle cx="150" cy="80" r="3" fill="#e74c3c"/>
+      
+      <!-- Instanced line -->
+      <path d="M 0,20 L 50,22 L 100,25 L 150,30 L 200,40 L 250,55" 
+            fill="none" stroke="#27ae60" stroke-width="3"/>
+      <circle cx="0" cy="20" r="3" fill="#27ae60"/>
+      <circle cx="50" cy="22" r="3" fill="#27ae60"/>
+      <circle cx="100" cy="25" r="3" fill="#27ae60"/>
+      <circle cx="150" cy="30" r="3" fill="#27ae60"/>
+      <circle cx="200" cy="40" r="3" fill="#27ae60"/>
+      <circle cx="250" cy="55" r="3" fill="#27ae60"/>
+      
+      <!-- Legend -->
+      <line x1="70" y1="10" x2="90" y2="10" stroke="#e74c3c" stroke-width="3"/>
+      <text x="95" y="14" font-family="Arial, sans-serif" font-size="10" fill="#666">Traditional</text>
+      
+      <line x1="170" y1="10" x2="190" y2="10" stroke="#27ae60" stroke-width="3"/>
+      <text x="195" y="14" font-family="Arial, sans-serif" font-size="10" fill="#666">Instanced</text>
+    </g>
+  </g>
+</svg>

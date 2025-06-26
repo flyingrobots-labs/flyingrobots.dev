@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --terminal-accent-blue: #58a6ff;
+  --terminal-accent-purple: #7c3aed;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  @apply bg-terminal-bg-primary text-terminal-text-primary font-mono;
+}
+
+/* Terminal cursor */
+@keyframes blink {
+  0%, 50% { border-right-color: #58a6ff; }
+  51%, 100% { border-right-color: transparent; }
+}
+
+.cursor-blink {
+  border-right: 2px solid #58a6ff;
+  animation: blink 1s infinite;
+}
+
+/* CRT Screen effects */
+@keyframes flicker {
+  0%, 98% { opacity: 1; }
+  99%, 100% { opacity: 0.98; }
+}
+
+@keyframes textShadow {
+  0% { text-shadow: 0 0 5px #00ff00; }
+  50% { text-shadow: 0 0 8px #00ff00, 0 0 12px #00ff00; }
+  100% { text-shadow: 0 0 5px #00ff00; }
+}
+
+.crt-screen {
+  animation: flicker 0.15s infinite linear alternate;
+}
+
+.crt-text {
+  animation: textShadow 2s infinite ease-in-out;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-terminal-bg-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-terminal-border rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-terminal-text-secondary;
+}
+
+/* Selection color */
+::selection {
+  @apply bg-terminal-accent-blue bg-opacity-30;
+}
+
+/* Focus styles */
+:focus {
+  outline: none;
+}
+
+.focus-ring {
+  @apply ring-2 ring-terminal-accent-blue ring-opacity-50;
+}
+
+/* Subtle hover effect for interactive elements */
+.hover-glow {
+  @apply relative transition-all duration-300;
+}
+
+.hover-glow::before {
+  content: '';
+  @apply absolute opacity-0 blur-lg transition-opacity duration-300;
+  inset: -2px;
+  background: linear-gradient(to right, var(--terminal-accent-blue), var(--terminal-accent-purple));
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.hover-glow:hover::before {
+  @apply opacity-10;
+}

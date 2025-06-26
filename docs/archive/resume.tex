@@ -1,0 +1,274 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\section{James Ross}\label{james-ross}
+
+\textbf{Staff Software Engineer \textbar{} Platform Architecture \&
+Distributed Systems}
+
+Seattle, WA • Remote OK • (425) 405-0593‬\\
+\href{mailto:james@flyingrobots.dev}{\nolinkurl{james@flyingrobots.dev}}\\
+\url{https://linkedin.com/in/flyingrobots}~\textbar~\url{https://github.com/flyingrobots}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+I build distributed systems and platform infrastructure that scale with
+teams and traffic. Over 18 years, I've architected data pipelines
+processing billions of events, built custom engines supporting thousands
+of concurrent users, and led technical teams that delivered measurable
+business impact. I solve the complex infrastructure problems so teams
+can focus on building features.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Core Competencies}\label{core-competencies}
+
+\textbf{Platform Engineering}: Distributed systems, event-driven
+architecture, real-time data processing, infrastructure automation\\
+\textbf{Technical Leadership}: Team building, mentoring, technical
+hiring, cross-functional collaboration\\
+\textbf{Data \& ML Systems}: Pipeline architecture, churn prediction,
+A/B testing, GDPR compliance, billion-scale event processing\\
+\textbf{Performance Engineering}: Allocation-free systems, predictive
+algorithms, load testing, bottleneck elimination\\
+\textbf{Cloud Infrastructure}: AWS architecture, cost optimization,
+CI/CD automation, container orchestration
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Professional Experience}\label{professional-experience}
+
+\subsubsection{\texorpdfstring{\textbf{Ember Entertainment} \textbar{}
+Core Tech Lead \& Platform Engineer \textbar{} \emph{Dec 2014 - Feb
+2022}}{Ember Entertainment \textbar{} Core Tech Lead \& Platform Engineer \textbar{} Dec 2014 - Feb 2022}}\label{ember-entertainment-core-tech-lead-platform-engineer-dec-2014---feb-2022}
+
+\emph{Built shared infrastructure and data platform serving 15+
+applications with millions of users}
+
+\textbf{Platform Infrastructure \& Team Leadership} - \textbf{Led Core
+Tech team of 4 engineers} across distributed systems, ML, and
+infrastructure - \textbf{Mentored junior engineer from basic JavaScript
+to technical lead} through daily pairing and architectural guidance\\
+- \textbf{Automated deployment pipeline} replacing manual FTP process
+with Jenkins CI/CD, reducing deployment time from hours to minutes -
+\textbf{Migrated version control} from Mercurial to Git across entire
+engineering organization, establishing branching strategies and
+automation
+
+\textbf{Billion-Scale Data Infrastructure} - \textbf{Architected
+end-to-end data pipeline processing billions of events} across 15+
+applications over 6+ years - \textbf{Built GDPR-compliant event
+collection system} with fingerprinting, deduplication, and user data
+indexing for compliance requests - \textbf{Designed fault-tolerant data
+architecture} with replayable pipelines, immutable source of truth in
+S3, and automated recovery - \textbf{Created unified fact table
+architecture} in Redshift supporting hundreds of event types with
+automatic schema detection and versioning
+
+\textbf{Machine Learning \& Business Intelligence} - \textbf{Built ML
+churn prediction system achieving 87\% accuracy with 34\% reduction in
+actual churn} through end-to-end feature engineering and automated
+intervention campaigns - \textbf{Developed A/B testing platform} with
+statistical significance testing, orthogonal experiment design, and
+automated sample size calculation - \textbf{Established data-driven
+culture} by teaching executives statistical concepts and providing
+self-service analytics tools - \textbf{Delivered measurable business
+impact} through data-driven optimization of user experience and
+monetization
+
+\textbf{Cloud Architecture \& Cost Optimization} - \textbf{Saved
+thousands in AWS costs} through Reserved Instance analysis, DynamoDB
+provisioning optimization, and automated scaling - \textbf{Implemented
+global CDN strategy} with CloudFront distribution reducing latency and
+server load - \textbf{Built distributed job processing system} with
+Redis-backed state management, worker pools, and automatic
+retry/recovery
+
+\subsubsection{\texorpdfstring{\textbf{Gala} \textbar{} Senior Software
+Engineer \textbar{} \emph{Feb 2022 - Apr
+2024}}{Gala \textbar{} Senior Software Engineer \textbar{} Feb 2022 - Apr 2024}}\label{gala-senior-software-engineer-feb-2022---apr-2024}
+
+\emph{Architected custom MMO engine and distributed backend systems for
+persistent world simulation}
+
+\textbf{Custom Engine Architecture} - \textbf{Built MMO game engine from
+scratch} including 2D physics system, collision detection, A*
+pathfinding, and real-time networking - \textbf{Implemented
+sophisticated predictive networking} with client-side prediction, server
+validation, rollback correction, and bandwidth optimization -
+\textbf{Designed distributed world simulation} supporting 1km x 1km
+zones with thousands of concurrent entities per zone - \textbf{Created
+ECS entity system} with component queries, efficient memory access
+patterns, and cross-zone coordination
+
+\textbf{Distributed Systems \& Infrastructure} - \textbf{Architected
+Redis-backed distributed job system} powering all gameplay logic with
+multi-stage execution, locking, and fault tolerance - \textbf{Built
+horizontally scalable worker pools} with fair scheduling, graceful
+failure handling, and resumable job processing - \textbf{Implemented
+real-time messaging system} supporting request/reply, pub/sub,
+broadcasts, and document reactivity patterns - \textbf{Developed load
+testing infrastructure} with bot swarms validating system performance
+under thousands of concurrent users
+
+\textbf{Technical Leadership \& Operations} - \textbf{Led technical
+interviews and hiring} for distributed engineering team across multiple
+time zones - \textbf{Owned AWS infrastructure and Docker environment}
+supporting development, staging, and production deployments -
+\textbf{Delivered complex features end-to-end} from research and
+requirements gathering to production deployment
+
+\subsubsection{\texorpdfstring{\textbf{SmileBreak} \textbar{} Senior
+Software Engineer \textbar{} \emph{June 2024 - May
+2025}}{SmileBreak \textbar{} Senior Software Engineer \textbar{} June 2024 - May 2025}}\label{smilebreak-senior-software-engineer-june-2024---may-2025}
+
+\emph{Built advanced UI systems and data pipeline tools for hybrid
+strategy/action game platform}
+
+\textbf{Performance-Critical Systems} - \textbf{Created allocation-free
+multi-touch input system} with gesture recognition, confidence scoring,
+and real-time conflict resolution - \textbf{Implemented reactive
+architecture patterns} eliminating 70\% of recurring UI bugs through
+ViewModelProxy and event streams - \textbf{Built complex data
+transformation pipeline} with Excel/CSV import, versioning, reference
+resolution, and multiple output formats
+
+\textbf{Architecture \& Patterns} - \textbf{Designed event-driven
+reactive UI system} with unidirectional data flow, immutable state, and
+clean layer separation - \textbf{Implemented policy-based rule engine}
+with Boolean logic support (AND, OR, NOT) and fluent builder API -
+\textbf{Created cross-platform input abstraction} supporting touch,
+gamepad, and keyboard/mouse with dynamic switching
+
+\subsubsection{Independent R\&D and Open Source
+Projects}\label{independent-rd-and-open-source-projects}
+
+\emph{May 2025 - Present}
+
+\textbf{Git Mind}~\textbar{} Principal Engineer\\
+\url{https://github.com/neuroglyph/git-mind}\strut \\
+Distributed memory. Semantic Git. Versioned thought. Architect
+of~\textbf{\emph{GitMind}}, an open-source protocol that transforms Git
+into a distributed, metadata-native semantic knowledge graph---enabling
+traceable idea evolution, recursive transclusion, and human-AI
+co-thought
+
+\textbf{Universal Charter}~\textbar{} Author\\
+\href{https://universalcharter.org/}{https://universalcharter.org}\\
+Framer of the~\textbf{\emph{Universal Charter}}, a framework for ethical
+coexistence across biological, artificial, and hybrid intelligences as
+consciousness emerges and evolves.
+
+\textbf{MIND-UCAL License}~\textbar{} Author\\
+\url{https://github.com/universalcharter/mind-ucal}\strut \\
+Creator of the~\textbf{\emph{MIND-UCAL License}}~(Moral Intelligence ·
+Non-violent Development · Universal Charter-Aligned License), an ethical
+software license restricting violent applications of AI and software. No
+killer robots. No weapons. No extractive surveillance. No evil AI.
+
+\textbf{GitScrolls: The Epic of Tuxicles}~\textbar{} Author\\
+\url{https://github.com/gitscrolls/gitscrolls}\strut \\
+Author of~\textbf{\emph{GitScrolls: The Epic of Tuxicles}}, a 16-part
+mythic narrative that teaches Git and development philosophy through
+allegory and satire. Follows a developer's tragic force-push to
+production and descent into ``Developer Hell,'' blending technical
+precision with literary storytelling, exploring themes of hubris,
+failure, and redemption in software development.
+
+\subsubsection{\texorpdfstring{\textbf{Earlier Experience} \textbar{}
+\emph{2007 -
+2014}}{Earlier Experience \textbar{} 2007 - 2014}}\label{earlier-experience-2007---2014}
+
+\textbf{Z2Live} \textbar{} Software Engineer \textbar{} \emph{2011 -
+2014}\\
+Real-time multiplayer systems, mobile networking, distributed
+matchmaking
+
+\textbf{Warner Bros / Snowblind Studios} \textbar{} Software Engineer
+\textbar{} \emph{2009 - 2011}\\
+AAA console game development, shared libraries, content pipeline tools
+
+\textbf{Snowblind Studios} \textbar{} Junior Programmer \textbar{}
+\emph{2007 - 2009}\\
+First industry role, promoted to full programming after early
+contributions
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Selected Technologies}\label{selected-technologies}
+
+\textbf{Languages}: JavaScript/TypeScript, C\#, Python, Lua, SQL, Bash\\
+\textbf{Platforms}: Node.js, Unity, .NET, Quantum Framework, React\\
+\textbf{Infrastructure}: AWS (EC2, S3, Redshift, Lambda, CloudFront),
+Docker, Kubernetes, Jenkins, GitHub Actions\\
+\textbf{Databases}: Redis, PostgreSQL, DynamoDB, RethinkDB,
+Elasticsearch\\
+\textbf{Data \& ML}: Pandas, Scikit-learn, TensorFlow, Apache Zeppelin,
+Kibana
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Education}\label{education}
+
+\textbf{B.S. Computer Science} - DigiPen Institute of Technology
+(2007)\\
+\emph{Concentration: Real-Time Interactive Simulation}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Looking for}: Staff+ platform engineering roles where I can
+architect systems that enable teams to scale, solve complex distributed
+systems challenges, and continue building the infrastructure that powers
+exceptional user experiences.
+
+\end{document}

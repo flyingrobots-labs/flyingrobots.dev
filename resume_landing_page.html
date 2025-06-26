@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Ross - Staff Game Infrastructure Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 20px 0;
+            padding: 60px 40px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.3em;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+        }
+
+        .hero .tagline {
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-info a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 40px 0;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            font-size: 2.2em;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .tech-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .tech-category h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .tech-category ul {
+            list-style: none;
+        }
+
+        .tech-category li {
+            padding: 5px 0;
+            color: #666;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .project-card a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .experience-highlight {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .experience-highlight h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .achievement {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .achievement-number {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .cta h2 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #ff6b6b;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #ee5a24;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero fade-in">
+            <h1>James Ross</h1>
+            <div class="subtitle">Staff Software Engineer • Game Infrastructure & Engine Architecture</div>
+            <div class="tagline">I build game infrastructure that scales—from custom MMO engines to data platforms processing billions of player events. 18 years of turning complex technical problems into player experiences that millions love.</div>
+            
+            <div class="contact-info">
+                <a href="resume.pdf" class="resume-download" style="background: #ff6b6b; font-weight: 600;" target="_blank">📄 Download Full Resume</a>
+                <a href="mailto:james@flyingrobots.dev">james@flyingrobots.dev</a>
+                <a href="tel:+14254050593">(425) 405-0593</a>
+                <a href="https://linkedin.com/in/flyingrobots" target="_blank">LinkedIn</a>
+                <a href="https://github.com/flyingrobots" target="_blank">GitHub</a>
+            </div>
+        </div>
+
+        <div class="stats fade-in">
+            <div class="stat-card">
+                <div class="stat-number">18</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Shipped Games</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">Billions</div>
+                <div class="stat-label">Player Events Processed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">87%</div>
+                <div class="stat-label">ML Accuracy Achieved</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Major Studios</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">Custom</div>
+                <div class="stat-label">MMO Engine Built</div>
+            </div>
+        </div>
+
+        <div class="section fade-in">
+            <h2>Career Highlights</h2>
+            
+            <div class="experience-highlight">
+                <h3>Ember Entertainment (2014-2022): Built shared infrastructure for 15+ mobile games</h3>
+                <div class="achievements">
+                    <div class="achievement">
+                        <div class="achievement-number">87%</div>
+                        <div>ML churn prediction accuracy</div>
+                    </div>
+                    <div class="achievement">
+                        <div class="achievement-number">34%</div>
+                        <div>Player retention improvement</div>
+                    </div>
+                    <div class="achievement">
+                        <div class="achievement-number">Billions</div>
+                        <div>Player events processed</div>
+                    </div>
+                    <div class="achievement">
+                        <div class="achievement-number">$1000s</div>
+                        <div>Monthly AWS cost savings</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-highlight" style="background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);">
+                <h3>Gala (2022-2024): Architected custom MMO engine for The Walking Dead: Empires</h3>
+                <div class="achievements">
+                    <div class="achievement">
+                        <div class="achievement-number">1000s</div>
+                        <div>Concurrent players per zone</div>
+                    </div>
+                    <div class="achievement">
+                        <div class="achievement-number">1km²</div>
+                        <div>Persistent world simulation</div>
+                    </div>
+                    <div class="achievement">
+                        <div class="achievement-number">Custom</div>
+                        <div>Physics & networking engine</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-highlight" style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);">
+                <h3>SmileBreak (2024-2025): Advanced Unity systems for hybrid strategy/action RPG</h3>
+                <div class="achievements">
+                    <div class="achievement">
+                        <div class="achievement-number">70%</div>
+                        <div>UI bugs eliminated</div>
+                    </div>
+                    <div class="achievement">
+                        <div class="achievement-number">MVVM</div>
+                        <div>Reactive architecture</div>
+                    </div>
+                    <div class="achievement">
+                        <div class="achievement-number">Multi-platform</div>
+                        <div>Input systems</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-highlight" style="background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);">
+                <h3>Earlier Career: AAA Console & Mobile Development</h3>
+                <div class="achievements">
+                    <div class="achievement">
+                        <div class="achievement-number">LOTR</div>
+                        <div>War in the North (Warner Bros)</div>
+                    </div>
+                    <div class="achievement">
+                        <div class="achievement-number">Multiple</div>
+                        <div>Mobile multiplayer titles</div>
+                    </div>
+                    <div class="achievement">
+                        <div class="achievement-number">2007</div>
+                        <div>Started at DigiPen graduate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section fade-in">
+            <h2>Technical Expertise</h2>
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3>Game Engines</h3>
+                    <ul>
+                        <li>Unity & Quantum</li>
+                        <li>Custom C++ Engines</li>
+                        <li>ECS Architecture</li>
+                        <li>Physics & Collision</li>
+                        <li>Cross-platform Development</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Live Operations</h3>
+                    <ul>
+                        <li>Player Analytics Pipelines</li>
+                        <li>A/B Testing Platforms</li>
+                        <li>Churn Prediction ML</li>
+                        <li>Real-time Telemetry</li>
+                        <li>GDPR Compliance</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Infrastructure</h3>
+                    <ul>
+                        <li>AWS Game Services</li>
+                        <li>Docker & CI/CD</li>
+                        <li>Redis & Job Processing</li>
+                        <li>Load Balancing</li>
+                        <li>Cost Optimization</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Languages & Databases</h3>
+                    <ul>
+                        <li>C#, JavaScript, Python</li>
+                        <li>C++, Lua Scripting</li>
+                        <li>Redis, DynamoDB</li>
+                        <li>PostgreSQL, RethinkDB</li>
+                        <li>Node.js Backend</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Multiplayer Systems</h3>
+                    <ul>
+                        <li>Client-Server Architecture</li>
+                        <li>Predictive Networking</li>
+                        <li>MMO Zone Systems</li>
+                        <li>Real-time Messaging</li>
+                        <li>Anti-cheat & Validation</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Leadership</h3>
+                    <ul>
+                        <li>Technical Team Management</li>
+                        <li>Cross-studio Collaboration</li>
+                        <li>Junior Developer Mentoring</li>
+                        <li>Architecture Decision Making</li>
+                        <li>Hiring & Interviews</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section fade-in">
+            <h2>Shipped Games & Major Projects</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px;">
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h3 style="color: #333; margin-bottom: 15px;">Mobile Game Portfolio</h3>
+                    <p style="color: #666; line-height: 1.6;">Built infrastructure serving <strong>Empire Z</strong>, <strong>Dragon Strike</strong>, <strong>Meowmatch</strong>, <strong>Word Jams</strong>, <strong>Survival Z</strong>, <strong>Aqua Blast</strong> and 10+ other titles with millions of players.</p>
+                </div>
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; border-left: 4px solid #2ecc71;">
+                    <h3 style="color: #333; margin-bottom: 15px;">AAA Console Development</h3>
+                    <p style="color: #666; line-height: 1.6;"><strong>Lord of the Rings: War in the North</strong> (Warner Bros/Snowblind) - AAA console RPG with shared libraries, content pipeline tools, and dialogue systems.</p>
+                </div>
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; border-left: 4px solid #9b59b6;">
+                    <h3 style="color: #333; margin-bottom: 15px;">MMO Infrastructure</h3>
+                    <p style="color: #666; line-height: 1.6;"><strong>The Walking Dead: Empires</strong> - Custom engine supporting persistent 1km² zones with thousands of concurrent players and sophisticated networking.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section fade-in">
+            <h2>Innovation Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <h3>Git Mind</h3>
+                    <p>Architected an open-source protocol transforming Git into a distributed semantic knowledge graph. Enables traceable idea evolution and human-AI collaboration.</p>
+                    <a href="https://github.com/neuroglyph/git-mind" target="_blank">View on GitHub</a>
+                </div>
+                <div class="project-card">
+                    <h3>Universal Charter</h3>
+                    <p>Framed ethical framework for coexistence across biological, artificial, and hybrid intelligences. Addressing the future of consciousness and AI ethics.</p>
+                    <a href="https://universalcharter.org" target="_blank">Learn More</a>
+                </div>
+                <div class="project-card">
+                    <h3>MIND-UCAL License</h3>
+                    <p>Created ethical software license restricting violent applications of AI. Pioneering responsible development in the AI era.</p>
+                    <a href="https://github.com/universalcharter/mind-ucal" target="_blank">View License</a>
+                </div>
+                <div class="project-card">
+                    <h3>GitScrolls</h3>
+                    <p>Authored 16-part mythic narrative teaching Git through allegory. Blending technical precision with storytelling to make complex concepts accessible.</p>
+                    <a href="https://github.com/gitscrolls/gitscrolls" target="_blank">Read the Epic</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta fade-in">
+            <h2>Ready to Build Something Amazing?</h2>
+            <p>This overview barely scratches the surface. Download my full resume for detailed technical accomplishments, architecture decisions, and quantified business impact across 18 years of game development.</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+                <a href="resume.pdf" class="cta-button" style="background: #667eea;" target="_blank">📄 Download Full Resume</a>
+                <a href="mailto:james@flyingrobots.dev" class="cta-button">✉️ Let's Talk</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add some dynamic number counting for stats
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            function updateCounter() {
+                start += increment;
+                if (start < target) {
+                    element.textContent = Math.floor(start);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            }
+            
+            updateCounter();
+        }
+
+        // Trigger counter animations when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const numbers = entry.target.querySelectorAll('.stat-number');
+                    numbers.forEach(num => {
+                        const target = num.textContent;
+                        if (!isNaN(target)) {
+                            animateCounter(num, parseInt(target));
+                        }
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+</body>
+</html>

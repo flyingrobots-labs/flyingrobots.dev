@@ -1,0 +1,178 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="glassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.1);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0.05);stop-opacity:1" />
+    </linearGradient>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feFlood flood-color="#000" flood-opacity="0.7"/>
+      <feComposite in="blur" in2="SourceGraphic"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#0a0a1a"/>
+  
+  <!-- 3D Scene Background -->
+  <g opacity="0.3">
+    <circle cx="150" cy="100" r="15" fill="#00ffff" opacity="0.6"/>
+    <circle cx="650" cy="150" r="12" fill="#ff6600" opacity="0.5"/>
+    <circle cx="300" cy="400" r="18" fill="#9945ff" opacity="0.4"/>
+    <circle cx="550" cy="350" r="14" fill="#ff00ff" opacity="0.6"/>
+    <circle cx="200" cy="500" r="16" fill="#00ff00" opacity="0.5"/>
+    
+    <!-- Grid lines -->
+    <g stroke="#00ffff" stroke-width="0.5" opacity="0.2">
+      <line x1="0" y1="300" x2="800" y2="300"/>
+      <line x1="0" y1="400" x2="800" y2="400"/>
+      <line x1="200" y1="0" x2="200" y2="600"/>
+      <line x1="400" y1="0" x2="400" y2="600"/>
+      <line x1="600" y1="0" x2="600" y2="600"/>
+    </g>
+  </g>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">
+    UI/Portfolio Layout Structure
+  </text>
+  
+  <!-- Main Layout Container -->
+  <g transform="translate(100, 80)">
+    <!-- Portfolio Container -->
+    <rect x="0" y="0" width="600" height="480" fill="url(#glassGradient)" stroke="#00ffff" stroke-width="2" rx="10" filter="url(#blur)" opacity="0.8"/>
+    
+    <!-- Header Section -->
+    <g transform="translate(20, 20)">
+      <rect x="0" y="0" width="560" height="80" fill="rgba(0,0,0,0.6)" stroke="#00ffff" stroke-width="1" rx="5"/>
+      <text x="20" y="30" font-family="Arial, sans-serif" font-size="24" fill="#00ffff" font-weight="bold" filter="url(#glow)">
+        James McGill
+      </text>
+      <text x="20" y="55" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">
+        Full-Stack Developer &amp; Creative Technologist
+      </text>
+      
+      <!-- Glitch effect representation -->
+      <rect x="18" y="25" width="150" height="8" fill="#ff00ff" opacity="0.3"/>
+      <rect x="22" y="27" width="140" height="8" fill="#00ffff" opacity="0.4"/>
+    </g>
+    
+    <!-- About Section -->
+    <g transform="translate(20, 120)">
+      <rect x="0" y="0" width="560" height="80" fill="rgba(0,0,0,0.4)" stroke="rgba(255,255,255,0.2)" stroke-width="1" rx="5"/>
+      <text x="20" y="20" font-family="Arial, sans-serif" font-size="16" fill="#00ffff" font-weight="bold">
+        About
+      </text>
+      <line x1="20" y1="25" x2="520" y2="25" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+      <line x1="20" y1="35" x2="480" y2="35" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+      <line x1="20" y1="45" x2="500" y2="45" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+      <line x1="20" y1="55" x2="450" y2="55" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+    </g>
+    
+    <!-- Skills Section -->
+    <g transform="translate(20, 220)">
+      <rect x="0" y="0" width="560" height="120" fill="rgba(0,0,0,0.4)" stroke="rgba(255,255,255,0.2)" stroke-width="1" rx="5"/>
+      <text x="20" y="20" font-family="Arial, sans-serif" font-size="16" fill="#00ffff" font-weight="bold">
+        Skills
+      </text>
+      
+      <!-- Skills Grid -->
+      <g transform="translate(20, 30)">
+        <!-- Skill cards -->
+        <rect x="0" y="0" width="100" height="60" fill="rgba(0,255,255,0.1)" stroke="#00ffff" stroke-width="1" rx="3"/>
+        <text x="50" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">JavaScript</text>
+        
+        <rect x="120" y="0" width="100" height="60" fill="rgba(255,102,0,0.1)" stroke="#ff6600" stroke-width="1" rx="3"/>
+        <text x="170" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">Three.js</text>
+        
+        <rect x="240" y="0" width="100" height="60" fill="rgba(153,69,255,0.1)" stroke="#9945ff" stroke-width="1" rx="3"/>
+        <text x="290" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">Node.js</text>
+        
+        <rect x="360" y="0" width="100" height="60" fill="rgba(255,0,255,0.1)" stroke="#ff00ff" stroke-width="1" rx="3"/>
+        <text x="410" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">React</text>
+        
+        <rect x="480" y="0" width="60" height="60" fill="rgba(0,255,0,0.1)" stroke="#00ff00" stroke-width="1" rx="3"/>
+        <text x="510" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">CSS</text>
+      </g>
+    </g>
+    
+    <!-- Projects Section -->
+    <g transform="translate(20, 360)">
+      <rect x="0" y="0" width="560" height="80" fill="rgba(0,0,0,0.4)" stroke="rgba(255,255,255,0.2)" stroke-width="1" rx="5"/>
+      <text x="20" y="20" font-family="Arial, sans-serif" font-size="16" fill="#00ffff" font-weight="bold">
+        Projects
+      </text>
+      <line x1="20" y1="25" x2="520" y2="25" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+      <line x1="20" y1="35" x2="480" y2="35" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+      <line x1="20" y1="45" x2="500" y2="45" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+      <line x1="20" y1="55" x2="450" y2="55" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+    </g>
+  </g>
+  
+  <!-- Layer Diagram -->
+  <g transform="translate(50, 50)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" font-weight="bold">
+      Layers:
+    </text>
+    
+    <!-- 3D Background -->
+    <rect x="0" y="10" width="30" height="15" fill="rgba(0,255,255,0.3)" stroke="#00ffff" stroke-width="1"/>
+    <text x="35" y="22" font-family="Arial, sans-serif" font-size="10" fill="#ffffff">
+      3D Scene (Background)
+    </text>
+    
+    <!-- Glass UI -->
+    <rect x="0" y="30" width="30" height="15" fill="rgba(0,0,0,0.7)" stroke="#ffffff" stroke-width="1"/>
+    <text x="35" y="42" font-family="Arial, sans-serif" font-size="10" fill="#ffffff">
+      Glass UI (Overlay)
+    </text>
+    
+    <!-- Terminal -->
+    <rect x="0" y="50" width="30" height="15" fill="rgba(0,0,0,0.9)" stroke="#00ffff" stroke-width="1"/>
+    <text x="35" y="62" font-family="Arial, sans-serif" font-size="10" fill="#ffffff">
+      Terminal (Top)
+    </text>
+  </g>
+  
+  <!-- Glassmorphism Details -->
+  <g transform="translate(650, 100)">
+    <rect x="-100" y="0" width="120" height="150" fill="rgba(0,0,0,0.8)" stroke="#37474f" stroke-width="2" rx="5"/>
+    <text x="-50" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#00ffff" font-weight="bold">
+      Glassmorphism
+    </text>
+    
+    <!-- Glass effect breakdown -->
+    <text x="-90" y="40" font-family="monospace" font-size="8" fill="#ffffff">
+      background: rgba(0,0,0,0.7)
+    </text>
+    <text x="-90" y="55" font-family="monospace" font-size="8" fill="#ffffff">
+      backdrop-filter: blur(10px)
+    </text>
+    <text x="-90" y="70" font-family="monospace" font-size="8" fill="#ffffff">
+      border: 1px solid rgba(255,255,255,0.1)
+    </text>
+    <text x="-90" y="85" font-family="monospace" font-size="8" fill="#ffffff">
+      box-shadow: cyan glow
+    </text>
+    
+    <!-- Visual effect demo -->
+    <rect x="-80" y="95" width="80" height="40" fill="url(#glassGradient)" stroke="rgba(255,255,255,0.2)" stroke-width="1" rx="3" filter="url(#blur)"/>
+    <text x="-40" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ffffff">
+      Glass Effect
+    </text>
+  </g>
+  
+  <!-- Responsive Notes -->
+  <g transform="translate(400, 570)">
+    <text x="0" y="0" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">
+      Responsive Design: Mobile-first approach with CSS Grid and Flexbox
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,196 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pipeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
+    </linearGradient>
+    <filter id="bloom">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glitch">
+      <feColorMatrix type="matrix" values="1 0 0 0 0.2
+                                           0 1 0 0 -0.1
+                                           0 0 1 0 0.1
+                                           0 0 0 1 0"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#1a1a1a"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">
+    Post-Processing Effect Pipeline
+  </text>
+  
+  <!-- Pipeline flow -->
+  <g transform="translate(100, 100)">
+    <!-- Scene Render -->
+    <rect x="0" y="0" width="120" height="80" fill="#2c3e50" stroke="#34495e" stroke-width="2" rx="5"/>
+    <text x="60" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+      Scene
+    </text>
+    <text x="60" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ecf0f1">
+      3D Objects
+    </text>
+    <text x="60" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#95a5a6">
+      (Original render)
+    </text>
+    
+    <!-- Arrow -->
+    <path d="M 120,40 L 150,40" stroke="#3498db" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+    
+    <!-- Render Target 1 -->
+    <rect x="150" y="0" width="100" height="80" fill="#34495e" stroke="#3498db" stroke-width="2" rx="5"/>
+    <text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      Render
+    </text>
+    <text x="200" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      Target 1
+    </text>
+    <text x="200" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#3498db">
+      Color Buffer
+    </text>
+    
+    <!-- Effects chain -->
+    <g transform="translate(0, 120)">
+      <!-- Bloom Pass -->
+      <rect x="150" y="0" width="100" height="60" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="5"/>
+      <text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+        Bloom
+      </text>
+      <text x="200" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ffcccc">
+        Glow effect
+      </text>
+      
+      <!-- Arrow -->
+      <path d="M 250,30 L 280,30" stroke="#3498db" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+      
+      <!-- FXAA Pass -->
+      <rect x="280" y="0" width="100" height="60" fill="#27ae60" stroke="#229954" stroke-width="2" rx="5"/>
+      <text x="330" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+        FXAA
+      </text>
+      <text x="330" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ccffcc">
+        Anti-aliasing
+      </text>
+      
+      <!-- Arrow -->
+      <path d="M 380,30 L 410,30" stroke="#3498db" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+      
+      <!-- Vignette Pass -->
+      <rect x="410" y="0" width="100" height="60" fill="#9b59b6" stroke="#8e44ad" stroke-width="2" rx="5"/>
+      <text x="460" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+        Vignette
+      </text>
+      <text x="460" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#e6ccff">
+        Edge darkening
+      </text>
+    </g>
+    
+    <!-- Final output -->
+    <g transform="translate(460, 40)">
+      <path d="M 50,60 L 80,60" stroke="#3498db" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+      
+      <rect x="80" y="20" width="120" height="80" fill="#2ecc71" stroke="#27ae60" stroke-width="3" rx="5"/>
+      <text x="140" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+        Screen
+      </text>
+      <text x="140" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+        Final Output
+      </text>
+    </g>
+  </g>
+  
+  <!-- Visual examples -->
+  <g transform="translate(100, 350)">
+    <text x="300" y="-20" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="white" font-weight="bold">
+      Effect Examples
+    </text>
+    
+    <!-- Original -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="120" height="80" fill="#34495e" stroke="#2c3e50" stroke-width="2" rx="5"/>
+      <circle cx="40" cy="40" r="20" fill="#3498db"/>
+      <rect x="70" y="30" width="30" height="30" fill="#e74c3c"/>
+      <text x="60" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ecf0f1">
+        Original
+      </text>
+    </g>
+    
+    <!-- With Bloom -->
+    <g transform="translate(150, 0)">
+      <rect x="0" y="0" width="120" height="80" fill="#34495e" stroke="#2c3e50" stroke-width="2" rx="5"/>
+      <circle cx="40" cy="40" r="20" fill="#3498db" filter="url(#bloom)"/>
+      <rect x="70" y="30" width="30" height="30" fill="#e74c3c" filter="url(#bloom)"/>
+      <text x="60" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ecf0f1">
+        + Bloom
+      </text>
+    </g>
+    
+    <!-- With Chromatic Aberration -->
+    <g transform="translate(300, 0)">
+      <rect x="0" y="0" width="120" height="80" fill="#34495e" stroke="#2c3e50" stroke-width="2" rx="5"/>
+      <circle cx="38" cy="40" r="20" fill="#ff0000" opacity="0.5"/>
+      <circle cx="40" cy="40" r="20" fill="#00ff00" opacity="0.5"/>
+      <circle cx="42" cy="40" r="20" fill="#0000ff" opacity="0.5"/>
+      <rect x="68" y="30" width="30" height="30" fill="#ff0000" opacity="0.5"/>
+      <rect x="70" y="30" width="30" height="30" fill="#00ff00" opacity="0.5"/>
+      <rect x="72" y="30" width="30" height="30" fill="#0000ff" opacity="0.5"/>
+      <text x="60" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ecf0f1">
+        + Chromatic
+      </text>
+    </g>
+    
+    <!-- With Glitch -->
+    <g transform="translate(450, 0)">
+      <rect x="0" y="0" width="120" height="80" fill="#34495e" stroke="#2c3e50" stroke-width="2" rx="5"/>
+      <g filter="url(#glitch)">
+        <circle cx="40" cy="40" r="20" fill="#3498db"/>
+        <rect x="70" y="30" width="30" height="30" fill="#e74c3c"/>
+      </g>
+      <!-- Glitch lines -->
+      <rect x="0" y="35" width="120" height="2" fill="#00ff00" opacity="0.8"/>
+      <rect x="0" y="45" width="120" height="1" fill="#ff00ff" opacity="0.8"/>
+      <text x="60" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ecf0f1">
+        + Glitch
+      </text>
+    </g>
+  </g>
+  
+  <!-- Performance impact -->
+  <g transform="translate(400, 500)">
+    <rect x="-300" y="-20" width="600" height="80" fill="#263238" stroke="#37474f" stroke-width="2" rx="5"/>
+    <text x="0" y="-5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+      Performance Impact
+    </text>
+    
+    <!-- Low impact -->
+    <g transform="translate(-200, 15)">
+      <rect x="-40" y="0" width="80" height="10" fill="#27ae60" rx="5"/>
+      <text x="0" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#27ae60">
+        Low: FXAA, Vignette
+      </text>
+    </g>
+    
+    <!-- Medium impact -->
+    <g transform="translate(0, 15)">
+      <rect x="-40" y="0" width="80" height="10" fill="#f39c12" rx="5"/>
+      <text x="0" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#f39c12">
+        Medium: Bloom, Blur
+      </text>
+    </g>
+    
+    <!-- High impact -->
+    <g transform="translate(200, 15)">
+      <rect x="-40" y="0" width="80" height="10" fill="#e74c3c" rx="5"/>
+      <text x="0" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#e74c3c">
+        High: DOF, SSAO
+      </text>
+    </g>
+  </g>
+</svg>

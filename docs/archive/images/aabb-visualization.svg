@@ -1,0 +1,78 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e0e0e0" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Background grid -->
+  <rect width="800" height="600" fill="white"/>
+  <rect width="800" height="600" fill="url(#grid)" />
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold">
+    Axis-Aligned Bounding Box (AABB)
+  </text>
+  
+  <!-- Complex shape (octahedron-like) -->
+  <g transform="translate(200, 300)">
+    <!-- Shape -->
+    <path d="M 0,-80 L 60,-30 L 60,30 L 0,80 L -60,30 L -60,-30 Z" 
+          fill="#4a90e2" fill-opacity="0.6" stroke="#2c5aa0" stroke-width="2"/>
+    
+    <!-- AABB -->
+    <rect x="-60" y="-80" width="120" height="160" 
+          fill="none" stroke="#e74c3c" stroke-width="3" stroke-dasharray="5,5"/>
+    
+    <!-- Min/Max points -->
+    <circle cx="-60" cy="80" r="5" fill="#e74c3c"/>
+    <text x="-70" y="100" font-family="Arial, sans-serif" font-size="14" text-anchor="end">min</text>
+    
+    <circle cx="60" cy="-80" r="5" fill="#e74c3c"/>
+    <text x="70" y="-85" font-family="Arial, sans-serif" font-size="14">max</text>
+    
+    <!-- Label -->
+    <text x="0" y="-110" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold">
+      Complex Shape
+    </text>
+  </g>
+  
+  <!-- Sphere with AABB -->
+  <g transform="translate(600, 300)">
+    <!-- Sphere -->
+    <circle cx="0" cy="0" r="60" fill="#27ae60" fill-opacity="0.6" stroke="#16a085" stroke-width="2"/>
+    
+    <!-- AABB -->
+    <rect x="-60" y="-60" width="120" height="120" 
+          fill="none" stroke="#e74c3c" stroke-width="3" stroke-dasharray="5,5"/>
+    
+    <!-- Center and radius -->
+    <circle cx="0" cy="0" r="3" fill="#333"/>
+    <line x1="0" y1="0" x2="60" y2="0" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="30" y="-10" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">r</text>
+    
+    <!-- Label -->
+    <text x="0" y="-90" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold">
+      Sphere
+    </text>
+  </g>
+  
+  <!-- AABB properties -->
+  <g transform="translate(400, 480)">
+    <text x="0" y="0" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#666">
+      AABB Properties:
+    </text>
+    <text x="0" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666">
+      • Always axis-aligned (never rotated)
+    </text>
+    <text x="0" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666">
+      • Defined by min and max points
+    </text>
+    <text x="0" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666">
+      • Fast collision detection: O(1)
+    </text>
+  </g>
+</svg>

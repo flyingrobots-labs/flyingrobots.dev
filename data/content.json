@@ -1,0 +1,278 @@
+{
+  "metadata": {
+    "title": "James Ross - Staff Software Engineer",
+    "description": "Staff Software Engineer with 18 years building game systems that scale to millions. View my career as git commits.",
+    "author": "James Ross"
+  },
+  "hero": {
+    "name": "James Ross",
+    "title": "Staff Software Engineer",
+    "subtitle": "Game Infrastructure & Engine Architecture",
+    "tagline": "I build game infrastructure that scales—from custom MMO engines to data platforms processing billions of player events. 18 years of turning complex technical problems into player experiences that millions love.",
+    "experience": "18 years building game infrastructure that scales. From custom MMO engines to ML platforms processing billions of player events."
+  },
+  "stats": {
+    "years": "18",
+    "yearsLabel": "Years Experience",
+    "games": "15+",
+    "gamesLabel": "Shipped Games",
+    "events": "Billions",
+    "eventsLabel": "Player Events Processed",
+    "commits": "127",
+    "commitsLabel": "commits",
+    "releases": "15",
+    "releasesLabel": "releases",
+    "branches": "8",
+    "branchesLabel": "branches",
+    "impact": "∞",
+    "impactLabel": "impact"
+  },
+  "navigation": {
+    "viewFullStory": "View Full Story",
+    "traditionalResume": "Traditional Resume",
+    "downloadResume": "Download Full Resume",
+    "contact": "Contact",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "startConversation": "Start a Conversation",
+    "letsTalk": "Let's Talk"
+  },
+  "terminal": {
+    "title": "CYBERSPACE TERMINAL v2.0",
+    "prompt": "guest@flyingrobots:~$",
+    "welcomeMessage": "WELCOME TO THE CYBERSPACE TERMINAL",
+    "warningMessage": "Unauthorized access is prohibited. Violators will be prosecuted to the full extent of galactic law.",
+    "commands": {
+      "help": {
+        "name": "help",
+        "description": "Show available commands"
+      },
+      "about": {
+        "name": "about",
+        "description": "About James Ross"
+      },
+      "skills": {
+        "name": "skills",
+        "description": "Technical skills"
+      },
+      "projects": {
+        "name": "projects",
+        "description": "View projects"
+      },
+      "contact": {
+        "name": "contact",
+        "description": "Contact information"
+      },
+      "shapes": {
+        "name": "shapes",
+        "description": "Show shape statistics"
+      },
+      "spawn": {
+        "name": "spawn [type]",
+        "description": "Spawn a shape (sphere, cone, cylinder, torus, octahedron)"
+      },
+      "aabb": {
+        "name": "aabb",
+        "description": "Toggle bounding box visualization"
+      },
+      "fps": {
+        "name": "fps",
+        "description": "Toggle FPS counter"
+      },
+      "clear": {
+        "name": "clear",
+        "description": "Clear terminal"
+      },
+      "exit": {
+        "name": "exit",
+        "description": "Exit terminal"
+      }
+    },
+    "messages": {
+      "commandNotFound": "Command not found. Type 'help' for available commands.",
+      "sceneManagerError": "ERROR: Scene manager not available",
+      "invalidShapeType": "Invalid shape type. Valid types: sphere, cone, cylinder, torus, octahedron",
+      "aabbOn": "AABB visualization enabled",
+      "aabbOff": "AABB visualization disabled",
+      "fpsOn": "FPS counter enabled",
+      "fpsOff": "FPS counter disabled",
+      "exitConfirm": "Exit terminal?",
+      "totalShapes": "Total shapes"
+    }
+  },
+  "contact": {
+    "email": "james@flyingrobots.dev",
+    "phone": "(425) 405-0593",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "experience": [
+    {
+      "company": "Ember Entertainment",
+      "date": "2022 - 2024",
+      "role": "Principal Engineer",
+      "description": "Led feature development for cross-platform racing MMO. Built custom telemetry systems and multiplayer infrastructure."
+    },
+    {
+      "company": "Gala Games",
+      "date": "2021 - 2022",
+      "role": "Senior Game Engineer",
+      "description": "Built telemetry and ML pipelines processing billions of player events. Created predictive systems for player behavior."
+    },
+    {
+      "company": "SmileBreak",
+      "date": "2019 - 2020",
+      "role": "Independent Consulting",
+      "description": "Remote game development consulting for studios worldwide."
+    },
+    {
+      "company": "Machine Zone",
+      "date": "2013 - 2019",
+      "role": "Senior Software Engineer",
+      "description": "Built AAA mobile games generating $1B+ revenue. Created core infrastructure for real-time strategy games."
+    },
+    {
+      "company": "Kabam",
+      "date": "2012 - 2013",
+      "role": "Software Engineer II",
+      "description": "Developed mobile F2P games reaching millions of players."
+    },
+    {
+      "company": "Telltale Games",
+      "date": "2011 - 2012",
+      "role": "Game Engineer",
+      "description": "Shipped episodic adventure games on multiple platforms."
+    },
+    {
+      "company": "ArenaNet",
+      "date": "2007 - 2011",
+      "role": "Associate Programmer → Game Programmer",
+      "description": "Contributed to Guild Wars franchise development and live operations."
+    }
+  ],
+  "projects": {
+    "gitMind": {
+      "name": "Git Mind",
+      "description": "Revolutionary R&D platform that uses Git as a neural substrate for distributed AI development. Pioneering the use of version control systems as computational frameworks for emergent intelligence.",
+      "status": "Active Development",
+      "impact": "Pioneering new AI development paradigms"
+    },
+    "universalCharter": {
+      "name": "Universal Charter",
+      "description": "Open framework for ethical AI governance and human-AI collaboration. Establishing principles for responsible AI development in gaming and beyond.",
+      "status": "Published",
+      "impact": "Setting standards for ethical AI in gaming"
+    },
+    "mindUcal": {
+      "name": "MIND-UCAL License",
+      "description": "Machine Intelligence Non-Derivative Universal Charter Aligned License. A new software license designed for AI-assisted development that protects both human and AI contributions.",
+      "status": "Released",
+      "impact": "Protecting AI-assisted creative works"
+    },
+    "gitScrolls": {
+      "name": "GitScrolls",
+      "description": "Knowledge preservation system using Git for long-term storage of human wisdom and AI insights. Building the foundation for intergenerational knowledge transfer.",
+      "status": "Alpha",
+      "impact": "Preserving knowledge for future generations"
+    }
+  },
+  "skills": {
+    "gameEngines": ["Unity", "Unreal", "Custom Engines", "CryEngine"],
+    "infrastructure": ["AWS", "Kubernetes", "Real-time Systems", "Distributed Computing"],
+    "liveOperations": ["Telemetry", "A/B Testing", "Analytics", "Performance Optimization"],
+    "languages": ["C++", "C#", "TypeScript", "Python", "Rust"]
+  },
+  "cta": {
+    "readyToBuild": "Ready to Build Something Amazing?",
+    "readyToArchitect": "Ready to architect game infrastructure that scales to millions of players?",
+    "letsConnect": "Let's Build Something Exceptional"
+  },
+  "git": {
+    "repository": "james-ross/career",
+    "branch": "main",
+    "status": "Your branch is up to date with 'origin/main'.",
+    "commits": [
+      {
+        "hash": "a7b3c9d",
+        "date": "2024",
+        "message": "📜 feat: Launch GitScrolls - Knowledge preservation system",
+        "tag": "v18.0.0"
+      },
+      {
+        "hash": "f2e5d8a",
+        "date": "2024",
+        "message": "🛡️ feat: Create MIND-UCAL License for AI development",
+        "tag": "license-1.0"
+      },
+      {
+        "hash": "c9b7e3f",
+        "date": "2024",
+        "message": "🌍 feat: Publish Universal Charter for ethical AI",
+        "tag": "charter-1.0"
+      },
+      {
+        "hash": "d4a8f1c",
+        "date": "2024",
+        "message": "🧠 feat: Launch Git Mind - AI neural substrate R&D",
+        "tag": "research"
+      },
+      {
+        "hash": "e8c4b7a",
+        "date": "2022-2024",
+        "message": "🏎️ feat: Lead infrastructure for racing MMO @ Ember",
+        "tag": "ember"
+      },
+      {
+        "hash": "b5f9a2d",
+        "date": "2021-2022",
+        "message": "📊 feat: Build ML pipelines @ Gala Games",
+        "tag": "gala"
+      },
+      {
+        "hash": "a2d7c8e",
+        "date": "2019-2020",
+        "message": "🎮 feat: Remote consulting via SmileBreak",
+        "tag": "consulting"
+      },
+      {
+        "hash": "7c3e9b1",
+        "date": "2013-2019",
+        "message": "💰 feat: Ship $1B+ revenue games @ MZ",
+        "tag": "machine-zone"
+      }
+    ]
+  },
+  "modes": {
+    "splitView": "Split View",
+    "narrativeOnly": "Narrative Only",
+    "dataOnly": "Data Only"
+  },
+  "narrative": {
+    "sections": [
+      {
+        "title": "The Journey Begins",
+        "content": "Every great story starts with a single line of code. Mine began at ArenaNet in 2007, fresh out of DigiPen with dreams of building worlds that millions would explore."
+      },
+      {
+        "title": "First Commit: AAA Games",
+        "content": "At ArenaNet, I learned that game development isn't just about code—it's about crafting experiences. Working on Guild Wars taught me the importance of performance, scale, and the magic that happens when technology serves creativity."
+      },
+      {
+        "title": "The Mobile Revolution",
+        "content": "When mobile gaming exploded, I rode the wave. At Kabam and Machine Zone, I helped build games that redefined what was possible on a phone. We weren't just making games; we were creating new ways for people to connect."
+      },
+      {
+        "title": "Building an Empire at Ember",
+        "content": "As Principal Engineer at Ember Entertainment, I led the charge on a cross-platform racing MMO. Here, I combined everything I'd learned: scalable infrastructure, real-time multiplayer, and the art of making complex systems feel effortless to players."
+      },
+      {
+        "title": "The MMO Challenge",
+        "content": "MMOs are the ultimate test of engineering prowess. Thousands of players, real-time interactions, persistent worlds—it's like conducting a symphony where every instrument is played by someone on the other side of the planet."
+      },
+      {
+        "title": "Current Chapter: Innovation",
+        "content": "Today, I'm exploring the intersection of AI and game development. Projects like Git Mind and GitScrolls aren't just technical experiments—they're glimpses into the future of how we'll build and experience interactive worlds."
+      }
+    ]
+  }
+}

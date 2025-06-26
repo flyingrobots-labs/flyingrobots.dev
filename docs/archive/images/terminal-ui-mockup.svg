@@ -1,0 +1,127 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="scanlines" patternUnits="userSpaceOnUse" width="1" height="4">
+      <rect width="1" height="2" fill="rgba(0,255,255,0.05)"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#0a0a0a"/>
+  
+  <!-- Terminal Container -->
+  <g transform="translate(50, 50)">
+    <!-- Terminal Window -->
+    <rect x="0" y="0" width="700" height="500" fill="#000814" stroke="#00ffff" stroke-width="2" rx="5" filter="url(#glow)"/>
+    
+    <!-- Terminal Header -->
+    <rect x="0" y="0" width="700" height="30" fill="#001d3d" rx="5"/>
+    <text x="10" y="20" font-family="monospace" font-size="14" fill="#00ffff">
+      portfolio@flyingrobots.dev
+    </text>
+    
+    <!-- Window Controls -->
+    <circle cx="670" cy="15" r="5" fill="#ff6b6b"/>
+    <circle cx="650" cy="15" r="5" fill="#ffd93d"/>
+    <circle cx="630" cy="15" r="5" fill="#6bcf7f"/>
+    
+    <!-- Terminal Content Area -->
+    <rect x="0" y="30" width="700" height="470" fill="rgba(0,20,40,0.8)"/>
+    <rect x="0" y="30" width="700" height="470" fill="url(#scanlines)"/>
+    
+    <!-- Command History -->
+    <g transform="translate(20, 50)">
+      <!-- Welcome Message -->
+      <text font-family="monospace" font-size="12" fill="#00ff00">
+        <tspan x="0" y="0">Welcome to FlyingRobots.dev Portfolio Terminal v1.0.0</tspan>
+        <tspan x="0" y="20">Type 'help' for available commands</tspan>
+        <tspan x="0" y="40">═══════════════════════════════════════════════════</tspan>
+      </text>
+      
+      <!-- Command Examples -->
+      <text font-family="monospace" font-size="12" fill="#00ffff">
+        <tspan x="0" y="80">&gt; help</tspan>
+      </text>
+      
+      <text font-family="monospace" font-size="12" fill="#ffffff">
+        <tspan x="0" y="100">Available commands:</tspan>
+        <tspan x="20" y="120">help     - Show this help message</tspan>
+        <tspan x="20" y="140">about    - Learn about me</tspan>
+        <tspan x="20" y="160">skills   - View my technical skills</tspan>
+        <tspan x="20" y="180">projects - See my portfolio projects</tspan>
+        <tspan x="20" y="200">contact  - Get in touch</tspan>
+        <tspan x="20" y="220">spawn    - Add shapes to the scene</tspan>
+        <tspan x="20" y="240">shapes   - Show shape statistics</tspan>
+        <tspan x="20" y="260">aabb     - Toggle collision boxes</tspan>
+        <tspan x="20" y="280">fps      - Toggle FPS counter</tspan>
+        <tspan x="20" y="300">clear    - Clear terminal</tspan>
+      </text>
+      
+      <!-- Example Command -->
+      <text font-family="monospace" font-size="12" fill="#00ffff">
+        <tspan x="0" y="340">&gt; spawn sphere</tspan>
+      </text>
+      
+      <text font-family="monospace" font-size="12" fill="#6bcf7f">
+        <tspan x="0" y="360">✓ Spawned new sphere at (0.5, 10.2, -3.1)</tspan>
+      </text>
+      
+      <!-- Current Input -->
+      <text font-family="monospace" font-size="12" fill="#00ffff">
+        <tspan x="0" y="400">&gt; shapes</tspan>
+        <tspan x="56" y="400" opacity="1">
+          <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+          _
+        </tspan>
+      </text>
+    </g>
+    
+    <!-- Visual Effects -->
+    <!-- Glitch Effect -->
+    <rect x="0" y="150" width="700" height="2" fill="#00ffff" opacity="0.3">
+      <animate attributeName="y" values="150;450;150" dur="10s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Side Panel Info -->
+    <g transform="translate(520, 80)">
+      <rect x="0" y="0" width="160" height="100" fill="rgba(0,255,255,0.1)" stroke="#00ffff" stroke-width="1" rx="3"/>
+      <text x="10" y="20" font-family="monospace" font-size="10" fill="#00ffff" font-weight="bold">
+        Scene Stats:
+      </text>
+      <text font-family="monospace" font-size="9" fill="#ffffff">
+        <tspan x="10" y="40">Shapes: 247</tspan>
+        <tspan x="10" y="55">FPS: 60</tspan>
+        <tspan x="10" y="70">Physics: Active</tspan>
+        <tspan x="10" y="85">Render: WebGL2</tspan>
+      </text>
+    </g>
+    
+    <!-- Command Palette Preview -->
+    <g transform="translate(520, 200)">
+      <rect x="0" y="0" width="160" height="120" fill="rgba(0,255,255,0.1)" stroke="#00ffff" stroke-width="1" rx="3"/>
+      <text x="10" y="20" font-family="monospace" font-size="10" fill="#00ffff" font-weight="bold">
+        Quick Actions:
+      </text>
+      <text font-family="monospace" font-size="9" fill="#ffffff">
+        <tspan x="10" y="40">[Tab] Autocomplete</tspan>
+        <tspan x="10" y="55">[↑/↓] History</tspan>
+        <tspan x="10" y="70">[Esc] Clear input</tspan>
+        <tspan x="10" y="85">[`]   Toggle terminal</tspan>
+        <tspan x="10" y="100">[?]   Context help</tspan>
+      </text>
+    </g>
+  </g>
+  
+  <!-- Floating UI Elements -->
+  <g transform="translate(50, 580)">
+    <text font-family="Arial, sans-serif" font-size="12" fill="#666">
+      Terminal UI mockup showing command interface and visual design
+    </text>
+  </g>
+</svg>

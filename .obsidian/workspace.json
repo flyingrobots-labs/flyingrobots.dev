@@ -1,0 +1,221 @@
+{
+  "main": {
+    "id": "518dd61a54272be4",
+    "type": "split",
+    "children": [
+      {
+        "id": "f483d39cdcda7934",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2ba4e018f631759c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/new-site/ideas/07-osx-terminal-design.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "07-osx-terminal-design"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c654cbdc88dc928b",
+    "type": "split",
+    "children": [
+      {
+        "id": "6469a7d4a696ed44",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7f33893b5a6cae4b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "ab74b4a219261bf6",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "1feaf31af94bfc70",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "9a74c91a4ad239e6",
+    "type": "split",
+    "children": [
+      {
+        "id": "ff86d85d3c42b90f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fb960a2bc824d63c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "docs/features/06-camera-system.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 06-camera-system"
+            }
+          },
+          {
+            "id": "43b55844205f4e57",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "docs/features/06-camera-system.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 06-camera-system"
+            }
+          },
+          {
+            "id": "0eeebb3be8e9aef1",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "8a5cc2ff305f8cac",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "docs/features/06-camera-system.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 06-camera-system"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "2ba4e018f631759c",
+  "lastOpenFiles": [
+    "public/tux.txt",
+    "docs/archive/resume.tex",
+    "docs/archive/resume.pdf",
+    "docs/archive/resume.md",
+    "docs/archive/images/ui-layout-structure.svg",
+    "docs/archive/images/threejs-coordinate-system.svg",
+    "docs/archive/images/spring-physics-camera.svg",
+    "docs/archive/images/terminal-ui-mockup.svg",
+    "docs/archive/images/collision-detection.svg",
+    "docs/archive/images/post-processing-pipeline.svg",
+    "docs/archive/images/physics-forces.svg",
+    "docs/archive/images/performance-monitoring-dashboard.svg",
+    "docs/archive/images/lighting-setup.svg",
+    "docs/archive/images/debug-visualization-modes.svg",
+    "docs/archive/images",
+    "docs/archive/features/FEATURE-TEMPLATE.md",
+    "docs/archive/features/FEATURE-CATALOG.md",
+    "docs/archive/features/10-testing-infrastructure.md",
+    "docs/archive/features/09-state-management.md",
+    "docs/archive/features/08-performance-monitoring.md",
+    "docs/archive/features/07-ui-portfolio-layout.md",
+    "docs/archive/features/06-camera-system.md",
+    "docs/archive/features/05-post-processing-effects.md",
+    "docs/archive/features/04-instanced-rendering.md",
+    "docs/archive/features/03-interactive-terminal.md",
+    "docs/archive/features/02-physics-simulation.md",
+    "docs/archive/features/01-3d-scene-rendering.md",
+    "docs/archive/features",
+    "docs/archive/VISION-ALIGNMENT.md",
+    "docs/archive/TESTING-SETUP.md",
+    "docs/archive/TDD-SPECIFICATIONS.md",
+    "docs/archive/SOLID-REFACTORING-REPORT.md",
+    "docs/archive/ROADMAP.md",
+    "docs/archive/README.md",
+    "docs/archive/PROJECT-VISION.md",
+    "docs/archive/NEW-ARCHITECTURE-POSSIBILITIES.md",
+    "docs/archive/HYBRID-ARCHITECTURE-IMPLEMENTATION.md",
+    "docs/archive/ECS-VS-SOLID-ANALYSIS.md",
+    "docs/archive/ANALYSIS-SUMMARY.md",
+    "docs/archive/ADR-001-HYBRID-ARCHITECTURE.md",
+    "docs/archive",
+    "app/components/GitTimeline.tsx",
+    "app/components/CSSFilterCompositor.tsx",
+    "node_modules/@types/html2canvas/package.json",
+    "node_modules/@types/html2canvas/index.d.ts",
+    "node_modules/@types/html2canvas/LICENSE"
+  ]
+}

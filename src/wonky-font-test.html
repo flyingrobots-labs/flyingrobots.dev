@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wonky Font Test</title>
+    <script src="/lib/opentype.min.js"></script>
+    <script type="module" src="/wonky-font-test.js"></script>
+    <style>
+        body {
+            margin: 20px;
+            font-family: monospace;
+            background: #f0f0f0;
+        }
+        .status {
+            margin-bottom: 20px;
+            padding: 10px;
+            background: white;
+            border-radius: 4px;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+        .zdog-canvas {
+            border: 1px solid #ccc;
+            display: block;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        button {
+            margin-right: 10px;
+            padding: 5px 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wonky 3D Font Test</h1>
+    <div class="status">Loading font...</div>
+    <canvas class="zdog-canvas" width="800" height="400"></canvas>
+    <p>Drag to rotate • Scroll to zoom</p>
+    <div class="controls">
+        <button id="toggleDepth">Toggle Depth</button>
+        <button id="toggleWireframe">Toggle Wireframe</button>
+        <button id="toggleRotation">Toggle Rotation</button>
+        <label>
+            Depth: <input type="range" id="depthSlider" min="5" max="100" value="40">
+            <span id="depthValue">40</span>
+        </label>
+    </div>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="James Ross - The story of a game infrastructure engineer. View my journey in narrative or data format.">
+    <title>James Ross - Story & Experience</title>
+    <link rel="stylesheet" href="assets/css/terminal.css">
+    <link rel="stylesheet" href="assets/css/minimal.css">
+    <link rel="stylesheet" href="assets/css/navigation.css">
+</head>
+<body>
+    <div class="mode-toggle">
+        <button class="mode-btn active" data-mode="split">Split View</button>
+        <button class="mode-btn" data-mode="git">Narrative Only</button>
+        <button class="mode-btn" data-mode="minimal">Data Only</button>
+    </div>
+
+    <nav class="terminal-nav">
+        <div class="nav-command">
+            <span class="prompt">james@flyingrobots:~$</span>
+            <span class="command">ls -la career/</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">drwxr-xr-x  timeline/</a>
+            <a href="about.html" class="nav-link active">drwxr-xr-x  story/</a>
+            <a href="resume.html" class="nav-link">-rw-r--r--  resume.pdf</a>
+        </div>
+    </nav>
+
+    <div class="split-container" id="splitContainer">
+        <div class="split-divider"></div>
+        
+        <!-- Left Side - Git Terminal Narrative -->
+        <div class="git-side active">
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <div class="btn close"></div>
+                        <div class="btn minimize"></div>
+                        <div class="btn maximize"></div>
+                    </div>
+                    <div class="terminal-title">james@flyingrobots ~/story --narrative</div>
+                </div>
+                
+                <div class="terminal-body">
+                    <div class="command-line">
+                        <span class="prompt">james@flyingrobots:~/story$</span>
+                        <span class="command">cat journey.md</span>
+                    </div>
+
+                    <div class="narrative-section">
+                        <h3 style="color: #58a6ff; margin: 20px 0;">## The Journey Begins</h3>
+                        <p class="narrative-text">Loading world: DigiPen Institute, Redmond, WA...</p>
+                        <p class="narrative-text">A computer science student fascinated by real-time systems discovers that games are the ultimate test of software engineering. Every frame matters. Every millisecond counts.</p>
+                        <div class="code-block" style="background: rgba(88, 166, 255, 0.1); padding: 10px; margin: 10px 0; border-radius: 4px;">
+                            <code>$ git init career<br>$ cd career<br>$ echo "Build systems that matter" > README.md</code>
+                        </div>
+                    </div>
+
+                    <div class="narrative-section">
+                        <h3 style="color: #238636; margin: 20px 0;">## First Commit: AAA Games</h3>
+                        <p class="narrative-text">Warner Bros/Snowblind Studios. Working on Lord of the Rings: War in the North taught me that great games require great infrastructure. Built shared libraries, content pipelines, and learned that the best code is code that ships.</p>
+                        <div class="achievement-badge" style="background: rgba(35, 134, 54, 0.2); padding: 10px; margin: 10px 0; border-radius: 4px;">
+                            <span style="color: #7ee787;">✓ Shipped AAA title on multiple platforms</span>
+                        </div>
+                    </div>
+
+                    <div class="narrative-section">
+                        <h3 style="color: #f85149; margin: 20px 0;">## The Mobile Revolution</h3>
+                        <p class="narrative-text">Z2Live. Mobile gaming was exploding. Built real-time multiplayer systems when "mobile multiplayer" was still a technical challenge. Every byte mattered on 3G networks.</p>
+                    </div>
+
+                    <div class="narrative-section">
+                        <h3 style="color: #7c3aed; margin: 20px 0;">## Building an Empire at Ember</h3>
+                        <p class="narrative-text">Seven years. Fifteen games. Billions of events.</p>
+                        <p class="narrative-text">Started as a platform engineer. Built the analytics pipeline that would process player data at scale. Then came the realization: we could predict player behavior.</p>
+                        <div class="code-block" style="background: rgba(124, 58, 237, 0.1); padding: 10px; margin: 10px 0; border-radius: 4px;">
+                            <code>def predict_churn(player_data):<br>    # 87% accuracy achieved<br>    # 34% retention improvement<br>    return ml_model.predict(player_data)</code>
+                        </div>
+                        <p class="narrative-text">Promoted to Core Tech Lead. Led a team building infrastructure that powered games reaching millions.</p>
+                    </div>
+
+                    <div class="narrative-section">
+                        <h3 style="color: #f0883e; margin: 20px 0;">## The MMO Challenge</h3>
+                        <p class="narrative-text">Gala Games needed a custom MMO engine for The Walking Dead: Empires. No existing solution would work. Built it from scratch:</p>
+                        <ul style="color: #8b949e; margin-left: 20px;">
+                            <li>Custom 2D physics with swept collision detection</li>
+                            <li>A* pathfinding with dynamic obstacles</li>
+                            <li>Client prediction with server validation</li>
+                            <li>Distributed job processing with Redis</li>
+                        </ul>
+                        <p class="narrative-text">Result: 1000s of concurrent players in 1km² persistent zones.</p>
+                    </div>
+
+                    <div class="narrative-section">
+                        <h3 style="color: #58a6ff; margin: 20px 0;">## Current Chapter: Innovation</h3>
+                        <p class="narrative-text">SmileBreak brought new challenges. Unity + Quantum framework. Eliminated 70% of UI bugs with reactive MVVM architecture.</p>
+                        <p class="narrative-text">Now exploring the intersection of distributed systems and human knowledge with independent R&D:</p>
+                        <ul style="color: #8b949e; margin-left: 20px;">
+                            <li>Git Mind - Semantic knowledge graphs</li>
+                            <li>Universal Charter - AI ethics framework</li>
+                            <li>MIND-UCAL License - Ethical software licensing</li>
+                        </ul>
+                    </div>
+
+                    <div class="command-line" style="margin-top: 40px;">
+                        <span class="prompt">james@flyingrobots:~/story$</span>
+                        <span class="command cursor">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Side - Clean Minimal Resume -->
+        <div class="minimal-side active">
+            <div class="minimal-container">
+                <div class="minimal-header">
+                    <h1>James Ross</h1>
+                    <div class="minimal-title">Staff Software Engineer | Game Infrastructure & Engine Architecture</div>
+                    <div class="minimal-summary">
+                        I architect game systems that scale to millions of players. Over 18 years, I've built everything from custom MMO engines to machine learning platforms that process billions of player events.
+                    </div>
+                    <div class="contact-bar">
+                        <a href="resume.pdf" class="primary" target="_blank">Download Resume</a>
+                        <a href="mailto:james@flyingrobots.dev">james@flyingrobots.dev</a>
+                        <a href="tel:+14254050593">(425) 405-0593</a>
+                        <a href="https://linkedin.com/in/flyingrobots" target="_blank">LinkedIn</a>
+                        <a href="https://github.com/flyingrobots" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="metrics-section">
+                    <div class="metric">
+                        <div class="metric-number">18</div>
+                        <div class="metric-label">Years Experience</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-number">15+</div>
+                        <div class="metric-label">Games Shipped</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-number">87%</div>
+                        <div class="metric-label">ML Accuracy</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-number">4</div>
+                        <div class="metric-label">Major Studios</div>
+                    </div>
+                </div>
+
+                <div class="minimal-section">
+                    <h2>Experience</h2>
+                    <div class="experience-grid">
+                        <div class="experience-item">
+                            <div class="experience-meta">
+                                <div class="experience-company">Independent R&D</div>
+                                <div class="experience-period">May 2025 – Present</div>
+                                <div class="experience-role">Principal Engineer</div>
+                            </div>
+                            <div class="experience-content">
+                                <h3>Open Source Innovation & Research</h3>
+                                <p>Developing distributed systems and AI ethics frameworks. Git Mind (semantic knowledge graphs), Universal Charter (AI ethics), MIND-UCAL License (ethical software licensing).</p>
+                            </div>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="experience-meta">
+                                <div class="experience-company">SmileBreak</div>
+                                <div class="experience-period">Jun 2024 – May 2025</div>
+                                <div class="experience-role">Senior Software Engineer</div>
+                            </div>
+                            <div class="experience-content">
+                                <h3>Unity & Quantum Game Systems</h3>
+                                <p>Built advanced systems for hybrid strategy/action RPG. Reactive MVVM architecture eliminated 70% of recurring UI bugs.</p>
+                                <div class="achievement-highlights">
+                                    <div class="highlight">
+                                        <div class="highlight-number">70%</div>
+                                        <div class="highlight-label">UI Bugs Eliminated</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="experience-meta">
+                                <div class="experience-company">Gala Games</div>
+                                <div class="experience-period">Feb 2022 – Apr 2024</div>
+                                <div class="experience-role">Senior Software Engineer</div>
+                            </div>
+                            <div class="experience-content">
+                                <h3>Custom MMO Engine Architecture</h3>
+                                <p>Architected complete MMO engine for The Walking Dead: Empires from scratch. 2D physics, networking, pathfinding, supporting thousands of concurrent players.</p>
+                                <div class="achievement-highlights">
+                                    <div class="highlight">
+                                        <div class="highlight-number">1000s</div>
+                                        <div class="highlight-label">Concurrent Players</div>
+                                    </div>
+                                    <div class="highlight">
+                                        <div class="highlight-number">1km²</div>
+                                        <div class="highlight-label">Zone Size</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="experience-meta">
+                                <div class="experience-company">Ember Entertainment</div>
+                                <div class="experience-period">Dec 2014 – Feb 2022</div>
+                                <div class="experience-role">Core Tech Lead</div>
+                            </div>
+                            <div class="experience-content">
+                                <h3>Game Infrastructure & Analytics Platform</h3>
+                                <p>Built shared infrastructure serving 15+ mobile games. ML churn prediction system achieved 87% accuracy with 34% player retention improvement.</p>
+                                <div class="achievement-highlights">
+                                    <div class="highlight">
+                                        <div class="highlight-number">87%</div>
+                                        <div class="highlight-label">ML Accuracy</div>
+                                    </div>
+                                    <div class="highlight">
+                                        <div class="highlight-number">34%</div>
+                                        <div class="highlight-label">Retention Boost</div>
+                                    </div>
+                                    <div class="highlight">
+                                        <div class="highlight-number">15+</div>
+                                        <div class="highlight-label">Games</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="experience-meta">
+                                <div class="experience-company">Earlier Career</div>
+                                <div class="experience-period">2007 – 2014</div>
+                                <div class="experience-role">Software Engineer</div>
+                            </div>
+                            <div class="experience-content">
+                                <h3>Foundation Years</h3>
+                                <p>Z2Live (mobile multiplayer), Warner Bros/Snowblind (Lord of the Rings: War in the North). Built real-time systems, content pipelines, and shipped AAA titles.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="minimal-section">
+                    <h2>Technical Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3>Game Engines</h3>
+                            <ul>
+                                <li>Unity & Quantum Framework</li>
+                                <li>Custom C++ Engines</li>
+                                <li>ECS Architecture</li>
+                                <li>Physics & Collision Systems</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Infrastructure</h3>
+                            <ul>
+                                <li>AWS Game Services</li>
+                                <li>Docker & CI/CD</li>
+                                <li>Redis & Job Processing</li>
+                                <li>Load Balancing</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Live Operations</h3>
+                            <ul>
+                                <li>Player Analytics Pipelines</li>
+                                <li>ML Churn Prediction</li>
+                                <li>A/B Testing Platforms</li>
+                                <li>Real-time Telemetry</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Languages</h3>
+                            <ul>
+                                <li>C#, JavaScript, Python</li>
+                                <li>C++, Lua</li>
+                                <li>SQL, NoSQL</li>
+                                <li>Node.js</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <h2>Let's Build Something Exceptional</h2>
+                    <p>Ready to tackle your next infrastructure challenge or scale your game to millions.</p>
+                    <div class="cta-buttons">
+                        <a href="resume.pdf" class="cta-button primary" target="_blank">Download Full Resume</a>
+                        <a href="mailto:james@flyingrobots.dev" class="cta-button secondary">Start a Conversation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/split-brain.js"></script>
+    <script src="assets/js/navigation.js"></script>
+</body>
+</html>

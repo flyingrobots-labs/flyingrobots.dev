@@ -1,0 +1,122 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow-x" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#e74c3c" />
+    </marker>
+    <marker id="arrow-y" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#27ae60" />
+    </marker>
+    <marker id="arrow-z" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3498db" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold">
+    Three.js Coordinate System
+  </text>
+  
+  <!-- Main coordinate system -->
+  <g transform="translate(400, 300)">
+    <!-- Grid lines for perspective -->
+    <g opacity="0.2">
+      <!-- XZ plane grid -->
+      <line x1="-150" y1="80" x2="150" y2="80" stroke="#666" stroke-width="1"/>
+      <line x1="-120" y1="60" x2="120" y2="60" stroke="#666" stroke-width="1"/>
+      <line x1="-90" y1="40" x2="90" y2="40" stroke="#666" stroke-width="1"/>
+      <line x1="-60" y1="20" x2="60" y2="20" stroke="#666" stroke-width="1"/>
+      
+      <line x1="-100" y1="-50" x2="-100" y2="100" stroke="#666" stroke-width="1"/>
+      <line x1="-50" y1="-25" x2="-50" y2="50" stroke="#666" stroke-width="1"/>
+      <line x1="50" y1="-25" x2="50" y2="50" stroke="#666" stroke-width="1"/>
+      <line x1="100" y1="-50" x2="100" y2="100" stroke="#666" stroke-width="1"/>
+    </g>
+    
+    <!-- Origin -->
+    <circle cx="0" cy="0" r="5" fill="#333"/>
+    <text x="10" y="20" font-family="Arial, sans-serif" font-size="14" fill="#333">(0, 0, 0)</text>
+    
+    <!-- X axis (right) -->
+    <line x1="0" y1="0" x2="200" y2="0" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrow-x)"/>
+    <text x="210" y="5" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e74c3c">+X</text>
+    <text x="210" y="20" font-family="Arial, sans-serif" font-size="14" fill="#e74c3c">(Right)</text>
+    
+    <!-- Y axis (up) -->
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="#27ae60" stroke-width="3" marker-end="url(#arrow-y)"/>
+    <text x="5" y="-155" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#27ae60">+Y</text>
+    <text x="5" y="-170" font-family="Arial, sans-serif" font-size="14" fill="#27ae60">(Up)</text>
+    
+    <!-- Z axis (forward/toward camera) -->
+    <line x1="0" y1="0" x2="-100" y2="100" stroke="#3498db" stroke-width="3" marker-end="url(#arrow-z)"/>
+    <text x="-120" y="110" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#3498db">+Z</text>
+    <text x="-140" y="125" font-family="Arial, sans-serif" font-size="14" fill="#3498db">(Forward)</text>
+    
+    <!-- Cube for reference -->
+    <g opacity="0.6">
+      <!-- Back face -->
+      <path d="M -30,-30 L 30,-30 L 30,-90 L -30,-90 Z" fill="#ecf0f1" stroke="#95a5a6" stroke-width="2"/>
+      <!-- Right face -->
+      <path d="M 30,-30 L 60,0 L 60,-60 L 30,-90 Z" fill="#bdc3c7" stroke="#95a5a6" stroke-width="2"/>
+      <!-- Top face -->
+      <path d="M -30,-90 L 30,-90 L 60,-60 L 0,-60 Z" fill="#d5dbdb" stroke="#95a5a6" stroke-width="2"/>
+      <!-- Front face -->
+      <path d="M -30,-30 L 30,-30 L 60,0 L 0,0 Z" fill="none" stroke="#95a5a6" stroke-width="2" stroke-dasharray="3,3"/>
+    </g>
+  </g>
+  
+  <!-- Right-handed system indicator -->
+  <g transform="translate(650, 450)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">
+      Right-Handed System
+    </text>
+    <!-- Hand diagram -->
+    <g transform="translate(-30, 20)">
+      <path d="M 0,0 L 10,-20 L 20,-15 L 25,-25 L 30,-20 L 35,-30 L 40,-25 L 40,-10 L 35,0 L 30,5 L 20,5 L 10,0 Z" 
+            fill="#f4e6d7" stroke="#333" stroke-width="2"/>
+      <!-- Thumb (X) -->
+      <line x1="40" y1="-15" x2="55" y2="-15" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrow-x)"/>
+      <text x="58" y="-12" font-family="Arial, sans-serif" font-size="12" fill="#e74c3c">X</text>
+      <!-- Index (Y) -->
+      <line x1="25" y1="-25" x2="25" y2="-40" stroke="#27ae60" stroke-width="3" marker-end="url(#arrow-y)"/>
+      <text x="28" y="-42" font-family="Arial, sans-serif" font-size="12" fill="#27ae60">Y</text>
+      <!-- Middle (Z) -->
+      <line x1="10" y1="-5" x2="-5" y2="10" stroke="#3498db" stroke-width="3" marker-end="url(#arrow-z)"/>
+      <text x="-10" y="15" font-family="Arial, sans-serif" font-size="12" fill="#3498db">Z</text>
+    </g>
+  </g>
+  
+  <!-- Common rotations -->
+  <g transform="translate(150, 450)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">
+      Positive Rotations
+    </text>
+    <text x="0" y="20" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#666">
+      (Counter-clockwise when looking along axis toward origin)
+    </text>
+    
+    <!-- Rotation indicators -->
+    <g transform="translate(-60, 40)">
+      <ellipse cx="0" cy="0" rx="25" ry="10" fill="none" stroke="#e74c3c" stroke-width="2"/>
+      <path d="M 25,0 A 25,10 0 0,1 -25,0" fill="none" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+      <path d="M 20,-5 L 25,0 L 20,5" fill="none" stroke="#e74c3c" stroke-width="2"/>
+      <text x="0" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#e74c3c">Rotate X</text>
+    </g>
+    
+    <g transform="translate(0, 40)">
+      <ellipse cx="0" cy="0" rx="25" ry="10" fill="none" stroke="#27ae60" stroke-width="2"/>
+      <path d="M 25,0 A 25,10 0 0,1 -25,0" fill="none" stroke="#27ae60" stroke-width="2" stroke-dasharray="3,3"/>
+      <path d="M 20,-5 L 25,0 L 20,5" fill="none" stroke="#27ae60" stroke-width="2"/>
+      <text x="0" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#27ae60">Rotate Y</text>
+    </g>
+    
+    <g transform="translate(60, 40)">
+      <ellipse cx="0" cy="0" rx="25" ry="10" fill="none" stroke="#3498db" stroke-width="2"/>
+      <path d="M 25,0 A 25,10 0 0,1 -25,0" fill="none" stroke="#3498db" stroke-width="2" stroke-dasharray="3,3"/>
+      <path d="M 20,-5 L 25,0 L 20,5" fill="none" stroke="#3498db" stroke-width="2"/>
+      <text x="0" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#3498db">Rotate Z</text>
+    </g>
+  </g>
+</svg>

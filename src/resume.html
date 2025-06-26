@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="James Ross - Staff Software Engineer Resume. 18 years of experience in game infrastructure and engine architecture.">
+    <title>James Ross - Resume</title>
+    <link rel="stylesheet" href="assets/css/minimal.css">
+    <link rel="stylesheet" href="assets/css/navigation.css">
+    <style>
+        /* Resume-specific styles */
+        body {
+            background: white;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica', Arial, sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .resume-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .resume-name {
+            font-size: 2.5em;
+            font-weight: 300;
+            margin-bottom: 10px;
+            color: #222;
+        }
+        
+        .resume-title {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .resume-contact {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.9em;
+        }
+        
+        .resume-contact a {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .resume-contact a:hover {
+            text-decoration: underline;
+        }
+        
+        .resume-section {
+            margin-bottom: 35px;
+        }
+        
+        .resume-section h2 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .resume-summary {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 30px;
+        }
+        
+        .experience-entry {
+            margin-bottom: 25px;
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+        
+        .experience-title {
+            font-weight: 600;
+            color: #222;
+        }
+        
+        .experience-company {
+            font-weight: 500;
+            color: #444;
+        }
+        
+        .experience-date {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .experience-description {
+            margin-top: 5px;
+            line-height: 1.5;
+            color: #444;
+        }
+        
+        .experience-achievements {
+            margin-top: 8px;
+            padding-left: 20px;
+        }
+        
+        .experience-achievements li {
+            margin-bottom: 4px;
+            color: #444;
+        }
+        
+        .skills-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-group h3 {
+            font-size: 1em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .skill-group ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .skill-group li {
+            padding: 2px 0;
+            color: #444;
+            font-size: 0.9em;
+        }
+        
+        .download-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: #f8f8f8;
+            border-radius: 8px;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background: #555;
+        }
+        
+        @media print {
+            body {
+                font-size: 11pt;
+                line-height: 1.4;
+            }
+            
+            .terminal-nav,
+            .download-section {
+                display: none;
+            }
+            
+            .resume-container {
+                max-width: 100%;
+                padding: 0;
+            }
+            
+            .resume-header {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+            }
+            
+            .resume-name {
+                font-size: 20pt;
+                margin-bottom: 5px;
+            }
+            
+            .resume-section h2 {
+                font-size: 12pt;
+                margin-bottom: 10px;
+            }
+            
+            .experience-entry {
+                page-break-inside: avoid;
+                margin-bottom: 15px;
+            }
+            
+            a {
+                color: #333;
+                text-decoration: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .experience-header {
+                flex-direction: column;
+            }
+            
+            .experience-date {
+                margin-top: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="terminal-nav">
+        <div class="nav-command">
+            <span class="prompt">james@flyingrobots:~$</span>
+            <span class="command">ls -la career/</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">drwxr-xr-x  timeline/</a>
+            <a href="about.html" class="nav-link">drwxr-xr-x  story/</a>
+            <a href="resume.html" class="nav-link active">-rw-r--r--  resume.pdf</a>
+        </div>
+    </nav>
+
+    <div class="resume-container">
+        <header class="resume-header">
+            <h1 class="resume-name">James Ross</h1>
+            <div class="resume-title">Staff Software Engineer | Platform Architecture & Distributed Systems</div>
+            <div class="resume-contact">
+                <span>Seattle, WA • Remote OK</span>
+                <a href="tel:+14254050593">(425) 405-0593</a>
+                <a href="mailto:james@flyingrobots.dev">james@flyingrobots.dev</a>
+                <a href="https://linkedin.com/in/flyingrobots" target="_blank">LinkedIn</a>
+                <a href="https://github.com/flyingrobots" target="_blank">GitHub</a>
+            </div>
+        </header>
+
+        <section class="resume-section">
+            <p class="resume-summary">
+                I build distributed systems and platform infrastructure that scale with teams and traffic. Over 18 years, I've architected data pipelines processing billions of events, built custom engines supporting thousands of concurrent users, and led technical teams that delivered measurable business impact. I solve the complex infrastructure problems so teams can focus on building features.
+            </p>
+        </section>
+
+        <section class="resume-section">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-entry">
+                <div class="experience-header">
+                    <div>
+                        <span class="experience-title">Principal Engineer</span> • 
+                        <span class="experience-company">Independent R&D</span>
+                    </div>
+                    <span class="experience-date">May 2025 – Present</span>
+                </div>
+                <div class="experience-description">
+                    Developing open source distributed systems and AI ethics frameworks.
+                </div>
+                <ul class="experience-achievements">
+                    <li><strong>Git Mind</strong>: Distributed memory. Semantic Git. Versioned thought. Architect of GitMind, an open-source protocol that transforms Git into a distributed, metadata-native semantic knowledge graph</li>
+                    <li><strong>Universal Charter</strong>: Framer of the Universal Charter, a framework for ethical coexistence across biological, artificial, and hybrid intelligences</li>
+                    <li><strong>MIND-UCAL License</strong>: Creator of the MIND-UCAL License (Moral Intelligence · Non-violent Development · Universal Charter-Aligned License), an ethical software license restricting violent applications of AI</li>
+                    <li><strong>GitScrolls</strong>: Author of GitScrolls: The Epic of Tuxicles, a 16-part mythic narrative teaching Git and development philosophy through allegory</li>
+                </ul>
+            </div>
+
+            <div class="experience-entry">
+                <div class="experience-header">
+                    <div>
+                        <span class="experience-title">Senior Software Engineer</span> • 
+                        <span class="experience-company">SmileBreak</span>
+                    </div>
+                    <span class="experience-date">Jun 2024 – May 2025</span>
+                </div>
+                <div class="experience-description">
+                    Built advanced UI systems and data pipeline tools for hybrid strategy/action game platform.
+                </div>
+                <ul class="experience-achievements">
+                    <li>Created allocation-free multi-touch input system with gesture recognition, confidence scoring, and real-time conflict resolution</li>
+                    <li>Implemented reactive architecture patterns eliminating 70% of recurring UI bugs through ViewModelProxy and event streams</li>
+                    <li>Built complex data transformation pipeline with Excel/CSV import, versioning, reference resolution, and multiple output formats</li>
+                    <li>Designed event-driven reactive UI system with unidirectional data flow, immutable state, and clean layer separation</li>
+                    <li>Implemented policy-based rule engine with Boolean logic support (AND, OR, NOT) and fluent builder API</li>
+                </ul>
+            </div>
+
+            <div class="experience-entry">
+                <div class="experience-header">
+                    <div>
+                        <span class="experience-title">Senior Software Engineer</span> • 
+                        <span class="experience-company">Gala Games</span>
+                    </div>
+                    <span class="experience-date">Feb 2022 – Apr 2024</span>
+                </div>
+                <div class="experience-description">
+                    Architected custom MMO engine and distributed backend systems for persistent world simulation.
+                </div>
+                <ul class="experience-achievements">
+                    <li>Built MMO game engine from scratch including 2D physics system, collision detection, A* pathfinding, and real-time networking</li>
+                    <li>Implemented sophisticated predictive networking with client-side prediction, server validation, rollback correction, and bandwidth optimization</li>
+                    <li>Designed distributed world simulation supporting 1km x 1km zones with thousands of concurrent entities per zone</li>
+                    <li>Created ECS entity system with component queries, efficient memory access patterns, and cross-zone coordination</li>
+                    <li>Architected Redis-backed distributed job system powering all gameplay logic with multi-stage execution, locking, and fault tolerance</li>
+                    <li>Built horizontally scalable worker pools with fair scheduling, graceful failure handling, and resumable job processing</li>
+                    <li>Developed load testing infrastructure with bot swarms validating system performance under thousands of concurrent users</li>
+                </ul>
+            </div>
+
+            <div class="experience-entry">
+                <div class="experience-header">
+                    <div>
+                        <span class="experience-title">Core Tech Lead</span> • 
+                        <span class="experience-company">Ember Entertainment</span>
+                    </div>
+                    <span class="experience-date">Dec 2014 – Feb 2022</span>
+                </div>
+                <div class="experience-description">
+                    Built shared infrastructure and data platform serving 15+ applications with millions of users.
+                </div>
+                <ul class="experience-achievements">
+                    <li><strong>Platform Infrastructure & Team Leadership</strong>: Led Core Tech team of 4 engineers across distributed systems, ML, and infrastructure</li>
+                    <li>Mentored junior engineer from basic JavaScript to technical lead through daily pairing and architectural guidance</li>
+                    <li>Automated deployment pipeline replacing manual FTP process with Jenkins CI/CD, reducing deployment time from hours to minutes</li>
+                    <li><strong>Billion-Scale Data Infrastructure</strong>: Architected end-to-end data pipeline processing billions of events across 15+ applications over 6+ years</li>
+                    <li>Built GDPR-compliant event collection system with fingerprinting, deduplication, and user data indexing for compliance requests</li>
+                    <li>Created unified fact table architecture in Redshift supporting hundreds of event types with automatic schema detection and versioning</li>
+                    <li><strong>Machine Learning & Business Intelligence</strong>: Built ML churn prediction system achieving 87% accuracy with 34% reduction in actual churn</li>
+                    <li>Developed A/B testing platform with statistical significance testing, orthogonal experiment design, and automated sample size calculation</li>
+                    <li><strong>Cloud Architecture & Cost Optimization</strong>: Saved thousands in AWS costs through Reserved Instance analysis and automated scaling</li>
+                </ul>
+            </div>
+
+            <div class="experience-entry">
+                <div class="experience-header">
+                    <div>
+                        <span class="experience-title">Earlier Experience</span> • 
+                        <span class="experience-company">Various Companies</span>
+                    </div>
+                    <span class="experience-date">2007 – 2014</span>
+                </div>
+                <div class="experience-description">
+                    <strong>Z2Live (2011-2014)</strong>: Software Engineer - Real-time multiplayer systems, mobile networking, distributed matchmaking<br>
+                    <strong>Warner Bros/Snowblind Studios (2009-2011)</strong>: Software Engineer - AAA console game development, shared libraries, content pipeline tools<br>
+                    <strong>Snowblind Studios (2007-2009)</strong>: Junior Programmer - First industry role, promoted to full programming after early contributions
+                </div>
+            </div>
+        </section>
+
+        <section class="resume-section">
+            <h2>Core Competencies</h2>
+            <p style="margin-bottom: 20px;">
+                <strong>Platform Engineering</strong>: Distributed systems, event-driven architecture, real-time data processing, infrastructure automation<br>
+                <strong>Technical Leadership</strong>: Team building, mentoring, technical hiring, cross-functional collaboration<br>
+                <strong>Data & ML Systems</strong>: Pipeline architecture, churn prediction, A/B testing, GDPR compliance, billion-scale event processing<br>
+                <strong>Performance Engineering</strong>: Allocation-free systems, predictive algorithms, load testing, bottleneck elimination<br>
+                <strong>Cloud Infrastructure</strong>: AWS architecture, cost optimization, CI/CD automation, container orchestration
+            </p>
+        </section>
+
+        <section class="resume-section">
+            <h2>Selected Technologies</h2>
+            <div class="skills-section">
+                <div class="skill-group">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>JavaScript/TypeScript</li>
+                        <li>C#</li>
+                        <li>Python</li>
+                        <li>Lua</li>
+                        <li>SQL</li>
+                        <li>Bash</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>Platforms</h3>
+                    <ul>
+                        <li>Node.js</li>
+                        <li>Unity</li>
+                        <li>.NET</li>
+                        <li>Quantum Framework</li>
+                        <li>React</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>Infrastructure</h3>
+                    <ul>
+                        <li>AWS (EC2, S3, Redshift, Lambda, CloudFront)</li>
+                        <li>Docker</li>
+                        <li>Kubernetes</li>
+                        <li>Jenkins</li>
+                        <li>GitHub Actions</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>Databases & Data</h3>
+                    <ul>
+                        <li>Redis</li>
+                        <li>PostgreSQL</li>
+                        <li>DynamoDB</li>
+                        <li>RethinkDB</li>
+                        <li>Elasticsearch</li>
+                        <li>Pandas, Scikit-learn, TensorFlow</li>
+                        <li>Apache Zeppelin, Kibana</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="resume-section">
+            <h2>Education</h2>
+            <div class="experience-entry">
+                <div class="experience-header">
+                    <div>
+                        <span class="experience-title">Bachelor of Science, Computer Science</span> • 
+                        <span class="experience-company">DigiPen Institute of Technology</span>
+                    </div>
+                    <span class="experience-date">2007</span>
+                </div>
+                <div class="experience-description">
+                    Concentration: Real-Time Interactive Simulation
+                </div>
+            </div>
+        </section>
+
+
+        <div class="download-section">
+            <p>Download this resume as a PDF for offline viewing or printing.</p>
+            <a href="#" class="download-btn" onclick="window.print(); return false;">Download PDF Resume</a>
+        </div>
+    </div>
+
+    <script src="assets/js/navigation.js"></script>
+</body>
+</html>

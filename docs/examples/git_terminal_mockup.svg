@@ -1,0 +1,194 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <!-- Terminal Window Background -->
+  <rect width="1000" height="700" fill="#161b22" rx="8"/>
+  
+  <!-- Terminal Header -->
+  <rect width="1000" height="50" fill="#21262d" rx="8 8 0 0"/>
+  <rect y="50" width="1000" height="1" fill="#30363d"/>
+  
+  <!-- Window Controls -->
+  <circle cx="20" cy="25" r="6" fill="#ff5f56"/>
+  <circle cx="40" cy="25" r="6" fill="#ffbd2e"/>
+  <circle cx="60" cy="25" r="6" fill="#27ca3f"/>
+  
+  <!-- Terminal Title -->
+  <text x="85" y="30" fill="#8b949e" font-family="Monaco, monospace" font-size="12">james@flyingrobots ~/career</text>
+  
+  <!-- Git Status -->
+  <rect x="850" y="15" width="40" height="20" fill="#238636" rx="3"/>
+  <text x="870" y="27" fill="white" font-family="Monaco, monospace" font-size="10" text-anchor="middle">main</text>
+  <text x="900" y="30" fill="#58a6ff" font-family="Monaco, monospace" font-size="10">127 commits</text>
+  
+  <!-- Command Line -->
+  <text x="20" y="80" fill="#7c3aed" font-family="Monaco, monospace" font-size="13">james@flyingrobots:~/career$</text>
+  <text x="220" y="80" fill="#58a6ff" font-family="Monaco, monospace" font-size="13">git log --oneline --graph --decorate</text>
+  
+  <!-- Repository Stats Box -->
+  <rect x="20" y="100" width="960" height="90" fill="rgba(124, 58, 237, 0.1)" stroke="#7c3aed" rx="6"/>
+  <text x="30" y="120" fill="#7c3aed" font-family="Monaco, monospace" font-size="12" font-weight="bold">Repository: james-ross/career</text>
+  <text x="30" y="135" fill="#c9d1d9" font-family="Monaco, monospace" font-size="10">18 years of commits to game infrastructure</text>
+  
+  <!-- Stats Grid -->
+  <g transform="translate(30, 150)">
+    <g>
+      <text x="60" y="0" fill="#7c3aed" font-family="Monaco, monospace" font-size="16" font-weight="bold" text-anchor="middle">127</text>
+      <text x="60" y="15" fill="#8b949e" font-family="Monaco, monospace" font-size="9" text-anchor="middle">commits</text>
+    </g>
+    <g transform="translate(200, 0)">
+      <text x="60" y="0" fill="#7c3aed" font-family="Monaco, monospace" font-size="16" font-weight="bold" text-anchor="middle">15+</text>
+      <text x="60" y="15" fill="#8b949e" font-family="Monaco, monospace" font-size="9" text-anchor="middle">releases</text>
+    </g>
+    <g transform="translate(400, 0)">
+      <text x="60" y="0" fill="#7c3aed" font-family="Monaco, monospace" font-size="16" font-weight="bold" text-anchor="middle">4</text>
+      <text x="60" y="15" fill="#8b949e" font-family="Monaco, monospace" font-size="9" text-anchor="middle">branches</text>
+    </g>
+    <g transform="translate(600, 0)">
+      <text x="60" y="0" fill="#7c3aed" font-family="Monaco, monospace" font-size="16" font-weight="bold" text-anchor="middle">∞</text>
+      <text x="60" y="15" fill="#8b949e" font-family="Monaco, monospace" font-size="9" text-anchor="middle">impact</text>
+    </g>
+  </g>
+  
+  <!-- Commit Lines -->
+  <!-- Major commit -->
+  <g transform="translate(20, 220)">
+    <rect x="0" y="0" width="960" height="35" fill="rgba(248, 81, 73, 0.05)" rx="4"/>
+    <rect x="0" y="0" width="3" height="35" fill="#f85149"/>
+    <text x="15" y="15" fill="#f85149" font-family="Monaco, monospace" font-size="12">*</text>
+    <text x="25" y="15" fill="#f0883e" font-family="Monaco, monospace" font-size="11" font-weight="bold">a7f3c21</text>
+    <text x="85" y="15" fill="#c9d1d9" font-family="Monaco, monospace" font-size="11">feat: Launch independent R&D - Git Mind, Universal Charter</text>
+    <!-- Tags -->
+    <rect x="85" y="20" width="60" height="12" fill="#db6d28" rx="2"/>
+    <text x="88" y="28" fill="white" font-family="Monaco, monospace" font-size="8">🔒Innovation</text>
+    <rect x="150" y="20" width="70" height="12" fill="#7c3aed" rx="2"/>
+    <text x="153" y="28" fill="white" font-family="Monaco, monospace" font-size="8">Open Source</text>
+    <rect x="225" y="20" width="50" height="12" fill="#7c3aed" rx="2"/>
+    <text x="228" y="28" fill="white" font-family="Monaco, monospace" font-size="8">AI Ethics</text>
+  </g>
+  
+  <!-- Feature commit -->
+  <g transform="translate(20, 265)">
+    <rect x="0" y="0" width="960" height="35" fill="rgba(35, 134, 54, 0.05)" rx="4"/>
+    <rect x="0" y="0" width="3" height="35" fill="#238636"/>
+    <text x="15" y="15" fill="#f85149" font-family="Monaco, monospace" font-size="12">*</text>
+    <text x="25" y="15" fill="#f0883e" font-family="Monaco, monospace" font-size="11" font-weight="bold">d4b8e92</text>
+    <text x="85" y="15" fill="#c9d1d9" font-family="Monaco, monospace" font-size="11">fix: Eliminate 70% UI bugs with MVVM at SmileBreak</text>
+    <!-- Tags -->
+    <rect x="85" y="20" width="70" height="12" fill="#238636" rx="2"/>
+    <text x="88" y="28" fill="white" font-family="Monaco, monospace" font-size="8">70% Reduction</text>
+    <rect x="160" y="20" width="35" height="12" fill="#7c3aed" rx="2"/>
+    <text x="163" y="28" fill="white" font-family="Monaco, monospace" font-size="8">Unity</text>
+    <rect x="200" y="20" width="35" height="12" fill="#7c3aed" rx="2"/>
+    <text x="203" y="28" fill="white" font-family="Monaco, monospace" font-size="8">MVVM</text>
+  </g>
+  
+  <!-- Major commit -->
+  <g transform="translate(20, 310)">
+    <rect x="0" y="0" width="960" height="35" fill="rgba(248, 81, 73, 0.05)" rx="4"/>
+    <rect x="0" y="0" width="3" height="35" fill="#f85149"/>
+    <text x="15" y="15" fill="#f85149" font-family="Monaco, monospace" font-size="12">*</text>
+    <text x="25" y="15" fill="#f0883e" font-family="Monaco, monospace" font-size="11" font-weight="bold">8c5d7f1</text>
+    <text x="85" y="15" fill="#c9d1d9" font-family="Monaco, monospace" font-size="11">feat: Complete custom MMO engine for Walking Dead</text>
+    <!-- Tags -->
+    <rect x="85" y="20" width="75" height="12" fill="#db6d28" rx="2"/>
+    <text x="88" y="28" fill="white" font-family="Monaco, monospace" font-size="8">🔒MMO Engine</text>
+    <rect x="165" y="20" width="75" height="12" fill="#238636" rx="2"/>
+    <text x="168" y="28" fill="white" font-family="Monaco, monospace" font-size="8">1000s Players</text>
+    <rect x="245" y="20" width="80" height="12" fill="#7c3aed" rx="2"/>
+    <text x="248" y="28" fill="white" font-family="Monaco, monospace" font-size="8">Custom Engine</text>
+  </g>
+  
+  <!-- Feature commit -->
+  <g transform="translate(20, 355)">
+    <rect x="0" y="0" width="960" height="35" fill="rgba(35, 134, 54, 0.05)" rx="4"/>
+    <rect x="0" y="0" width="3" height="35" fill="#238636"/>
+    <text x="15" y="15" fill="#f85149" font-family="Monaco, monospace" font-size="12">*</text>
+    <text x="25" y="15" fill="#f0883e" font-family="Monaco, monospace" font-size="11" font-weight="bold">e1f8a67</text>
+    <text x="85" y="15" fill="#c9d1d9" font-family="Monaco, monospace" font-size="11">feat: Deploy ML churn prediction - 87% accuracy</text>
+    <!-- Tags -->
+    <rect x="85" y="20" width="75" height="12" fill="#db6d28" rx="2"/>
+    <text x="88" y="28" fill="white" font-family="Monaco, monospace" font-size="8">🔒87% Accuracy</text>
+    <rect x="165" y="20" width="75" height="12" fill="#238636" rx="2"/>
+    <text x="168" y="28" fill="white" font-family="Monaco, monospace" font-size="8">34% Retention</text>
+    <rect x="245" y="20" width="20" height="12" fill="#7c3aed" rx="2"/>
+    <text x="248" y="28" fill="white" font-family="Monaco, monospace" font-size="8">ML</text>
+  </g>
+  
+  <!-- Feature commit -->
+  <g transform="translate(20, 400)">
+    <rect x="0" y="0" width="960" height="35" fill="rgba(35, 134, 54, 0.05)" rx="4"/>
+    <rect x="0" y="0" width="3" height="35" fill="#238636"/>
+    <text x="15" y="15" fill="#f85149" font-family="Monaco, monospace" font-size="12">*</text>
+    <text x="25" y="15" fill="#f0883e" font-family="Monaco, monospace" font-size="11" font-weight="bold">c6b4d28</text>
+    <text x="85" y="15" fill="#c9d1d9" font-family="Monaco, monospace" font-size="11">feat: Build analytics pipeline - billions of events</text>
+    <!-- Tags -->
+    <rect x="85" y="20" width="85" height="12" fill="#238636" rx="2"/>
+    <text x="88" y="28" fill="white" font-family="Monaco, monospace" font-size="8">Billions Events</text>
+    <rect x="175" y="20" width="50" height="12" fill="#7c3aed" rx="2"/>
+    <text x="178" y="28" fill="white" font-family="Monaco, monospace" font-size="8">Analytics</text>
+    <rect x="230" y="20" width="25" height="12" fill="#7c3aed" rx="2"/>
+    <text x="233" y="28" fill="white" font-family="Monaco, monospace" font-size="8">AWS</text>
+  </g>
+  
+  <!-- Major commit -->
+  <g transform="translate(20, 445)">
+    <rect x="0" y="0" width="960" height="35" fill="rgba(248, 81, 73, 0.05)" rx="4"/>
+    <rect x="0" y="0" width="3" height="35" fill="#f85149"/>
+    <text x="15" y="15" fill="#f85149" font-family="Monaco, monospace" font-size="12">*</text>
+    <text x="25" y="15" fill="#f0883e" font-family="Monaco, monospace" font-size="11" font-weight="bold">a2b5c78</text>
+    <text x="85" y="15" fill="#c9d1d9" font-family="Monaco, monospace" font-size="11">feat: Promoted to Core Tech Lead at Ember</text>
+    <!-- Tags -->
+    <rect x="85" y="20" width="65" height="12" fill="#db6d28" rx="2"/>
+    <text x="88" y="28" fill="white" font-family="Monaco, monospace" font-size="8">🔒Leadership</text>
+    <rect x="155" y="20" width="60" height="12" fill="#238636" rx="2"/>
+    <text x="158" y="28" fill="white" font-family="Monaco, monospace" font-size="8">Team Lead</text>
+  </g>
+  
+  <!-- Feature commit -->
+  <g transform="translate(20, 490)">
+    <rect x="0" y="0" width="960" height="35" fill="rgba(35, 134, 54, 0.05)" rx="4"/>
+    <rect x="0" y="0" width="3" height="35" fill="#238636"/>
+    <text x="15" y="15" fill="#f85149" font-family="Monaco, monospace" font-size="12">*</text>
+    <text x="25" y="15" fill="#f0883e" font-family="Monaco, monospace" font-size="11" font-weight="bold">d6a9b52</text>
+    <text x="85" y="15" fill="#c9d1d9" font-family="Monaco, monospace" font-size="11">feat: Ship Lord of the Rings: War in the North</text>
+    <!-- Tags -->
+    <rect x="85" y="20" width="70" height="12" fill="#db6d28" rx="2"/>
+    <text x="88" y="28" fill="white" font-family="Monaco, monospace" font-size="8">🔒AAA Release</text>
+    <rect x="160" y="20" width="75" height="12" fill="#238636" rx="2"/>
+    <text x="163" y="28" fill="white" font-family="Monaco, monospace" font-size="8">Warner Bros</text>
+    <rect x="240" y="20" width="45" height="12" fill="#7c3aed" rx="2"/>
+    <text x="243" y="28" fill="white" font-family="Monaco, monospace" font-size="8">Console</text>
+  </g>
+  
+  <!-- Footer section -->
+  <rect y="540" width="1000" height="1" fill="#30363d"/>
+  <text x="20" y="565" fill="#7c3aed" font-family="Monaco, monospace" font-size="12">james@flyingrobots:~/career$</text>
+  <text x="220" y="565" fill="#58a6ff" font-family="Monaco, monospace" font-size="12">git remote -v</text>
+  <text x="20" y="585" fill="#58a6ff" font-family="Monaco, monospace" font-size="11">origin  james@flyingrobots.dev (fetch)</text>
+  <text x="20" y="600" fill="#58a6ff" font-family="Monaco, monospace" font-size="11">origin  james@flyingrobots.dev (push)</text>
+  
+  <!-- Contact links mockup -->
+  <g transform="translate(20, 620)">
+    <rect x="0" y="0" width="80" height="20" fill="#238636" rx="3"/>
+    <text x="40" y="12" fill="white" font-family="Monaco, monospace" font-size="9" text-anchor="middle">📄 resume.pdf</text>
+    
+    <rect x="90" y="0" width="120" height="20" fill="rgba(88, 166, 255, 0.1)" stroke="#58a6ff" rx="3"/>
+    <text x="150" y="12" fill="#58a6ff" font-family="Monaco, monospace" font-size="9" text-anchor="middle">📧 Email</text>
+    
+    <rect x="220" y="0" width="80" height="20" fill="rgba(88, 166, 255, 0.1)" stroke="#58a6ff" rx="3"/>
+    <text x="260" y="12" fill="#58a6ff" font-family="Monaco, monospace" font-size="9" text-anchor="middle">🔗 LinkedIn</text>
+    
+    <rect x="310" y="0" width="80" height="20" fill="rgba(88, 166, 255, 0.1)" stroke="#58a6ff" rx="3"/>
+    <text x="350" y="12" fill="#58a6ff" font-family="Monaco, monospace" font-size="9" text-anchor="middle">💻 GitHub</text>
+  </g>
+  
+  <!-- Subtle terminal glow effect -->
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+</svg>

@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>git log --oneline --graph james-ross</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+
+        .terminal {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #161b22;
+            min-height: 100vh;
+        }
+
+        .terminal-header {
+            background: #21262d;
+            padding: 15px 20px;
+            border-bottom: 1px solid #30363d;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .terminal-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .btn.close { background: #ff5f56; }
+        .btn.minimize { background: #ffbd2e; }
+        .btn.maximize { background: #27ca3f; }
+
+        .terminal-title {
+            color: #8b949e;
+            font-size: 13px;
+            margin-left: 12px;
+        }
+
+        .git-controls {
+            margin-left: auto;
+            display: flex;
+            gap: 15px;
+        }
+
+        .git-branch {
+            background: #238636;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+        }
+
+        .git-status {
+            color: #58a6ff;
+            font-size: 11px;
+        }
+
+        .terminal-body {
+            padding: 20px;
+        }
+
+        .command-line {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .prompt {
+            color: #7c3aed;
+            margin-right: 8px;
+        }
+
+        .command {
+            color: #58a6ff;
+        }
+
+        .git-graph {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .commit-line {
+            display: flex;
+            align-items: flex-start;
+            margin: 8px 0;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .commit-line:hover {
+            background: rgba(88, 166, 255, 0.1);
+            transform: translateX(4px);
+        }
+
+        .commit-graph {
+            color: #f85149;
+            margin-right: 8px;
+            width: 20px;
+            flex-shrink: 0;
+        }
+
+        .commit-hash {
+            color: #f0883e;
+            margin-right: 8px;
+            font-weight: bold;
+            width: 60px;
+            flex-shrink: 0;
+        }
+
+        .commit-message {
+            flex: 1;
+            color: #c9d1d9;
+        }
+
+        .commit-tags {
+            display: flex;
+            gap: 6px;
+            margin-left: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #1f6feb;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+        .tag.skill { background: #7c3aed; }
+        .tag.achievement { background: #238636; }
+        .tag.language { background: #f85149; }
+        .tag.signed { 
+            background: #db6d28;
+            position: relative;
+        }
+
+        .tag.signed::before {
+            content: '🔒';
+            margin-right: 3px;
+        }
+
+        /* Commit Types */
+        .commit-line.major {
+            border-left: 4px solid #f85149;
+            padding-left: 12px;
+            margin-left: -16px;
+        }
+
+        .commit-line.feature {
+            border-left: 4px solid #238636;
+            padding-left: 12px;
+            margin-left: -16px;
+        }
+
+        .commit-line.fix {
+            border-left: 4px solid #f0883e;
+            padding-left: 12px;
+            margin-left: -16px;
+        }
+
+        /* Diff Panel */
+        .diff-panel {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 50%;
+            height: 100vh;
+            background: #0d1117;
+            border-left: 1px solid #30363d;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 200;
+            overflow-y: auto;
+        }
+
+        .diff-panel.active {
+            transform: translateX(0);
+        }
+
+        .diff-header {
+            background: #21262d;
+            padding: 15px 20px;
+            border-bottom: 1px solid #30363d;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .diff-title {
+            color: #58a6ff;
+            font-weight: bold;
+        }
+
+        .close-diff {
+            background: none;
+            border: none;
+            color: #8b949e;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 5px;
+        }
+
+        .close-diff:hover {
+            color: #c9d1d9;
+        }
+
+        .diff-content {
+            padding: 20px;
+        }
+
+        .diff-section {
+            margin: 20px 0;
+        }
+
+        .diff-section h3 {
+            color: #58a6ff;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .diff-line {
+            padding: 2px 8px;
+            margin: 1px 0;
+            border-radius: 2px;
+        }
+
+        .diff-line.added {
+            background: rgba(35, 134, 54, 0.2);
+            color: #7ee787;
+        }
+
+        .diff-line.removed {
+            background: rgba(248, 81, 73, 0.2);
+            color: #ffa198;
+        }
+
+        .diff-line.context {
+            color: #8b949e;
+        }
+
+        .diff-line::before {
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        .diff-line.added::before { content: '+'; }
+        .diff-line.removed::before { content: '-'; }
+        .diff-line.context::before { content: ' '; }
+
+        .achievements-panel {
+            background: rgba(88, 166, 255, 0.1);
+            border: 1px solid #58a6ff;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .achievement-stat {
+            text-align: center;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+        }
+
+        .achievement-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #58a6ff;
+        }
+
+        .achievement-label {
+            font-size: 0.8em;
+            color: #8b949e;
+            margin-top: 5px;
+        }
+
+        .contact-section {
+            background: rgba(35, 134, 54, 0.1);
+            border: 1px solid #238636;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .contact-links a {
+            color: #58a6ff;
+            text-decoration: none;
+            padding: 8px 12px;
+            background: rgba(88, 166, 255, 0.1);
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .contact-links a:hover {
+            background: rgba(88, 166, 255, 0.2);
+        }
+
+        .contact-links a.primary {
+            background: #238636;
+            color: white;
+        }
+
+        .contact-links a.primary:hover {
+            background: #2ea043;
+        }
+
+        /* Branch visualization */
+        .branch-info {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid #7c3aed;
+            border-radius: 6px;
+        }
+
+        .branch-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .branch-stat {
+            text-align: center;
+        }
+
+        .branch-stat-number {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #7c3aed;
+        }
+
+        .branch-stat-label {
+            font-size: 0.8em;
+            color: #8b949e;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .diff-panel {
+                width: 100%;
+            }
+            
+            .commit-line {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .commit-hash {
+                width: auto;
+            }
+            
+            .commit-tags {
+                margin-left: 0;
+            }
+        }
+
+        .footer-commands {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #30363d;
+        }
+
+        .footer-commands .command-line {
+            border: none;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <div class="btn close"></div>
+                <div class="btn minimize"></div>
+                <div class="btn maximize"></div>
+            </div>
+            <div class="terminal-title">james@flyingrobots ~/career</div>
+            <div class="git-controls">
+                <span class="git-branch">main</span>
+                <span class="git-status">18 years, 127 commits</span>
+            </div>
+        </div>
+        
+        <div class="terminal-body">
+            <div class="command-line">
+                <span class="prompt">james@flyingrobots:~/career$</span>
+                <span class="command">git log --oneline --graph --decorate --all</span>
+            </div>
+
+            <div class="branch-info">
+                <h3 style="color: #7c3aed; margin-bottom: 10px;">Repository: james-ross/career</h3>
+                <p style="color: #c9d1d9;">18 years of commits to game infrastructure and engine development</p>
+                <div class="branch-stats">
+                    <div class="branch-stat">
+                        <div class="branch-stat-number">127</div>
+                        <div class="branch-stat-label">commits</div>
+                    </div>
+                    <div class="branch-stat">
+                        <div class="branch-stat-number">15+</div>
+                        <div class="branch-stat-label">releases</div>
+                    </div>
+                    <div class="branch-stat">
+                        <div class="branch-stat-number">4</div>
+                        <div class="branch-stat-label">branches</div>
+                    </div>
+                    <div class="branch-stat">
+                        <div class="branch-stat-number">∞</div>
+                        <div class="branch-stat-label">impact</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="git-graph">
+                <!-- Current Independent Work -->
+                <div class="commit-line major" data-commit="independent-rd">
+                    <span class="commit-graph">*</span>
+                    <span class="commit-hash">a7f3c21</span>
+                    <span class="commit-message">feat: Launch independent R&D phase - Git Mind, Universal Charter</span>
+                    <div class="commit-tags">
+                        <span class="tag signed">Innovation</span>
+                        <span class="tag skill">Open Source</span>
+                        <span class="tag skill">AI Ethics</span>
+                        <span class="tag">Distributed Systems</span>
+                    </div>
+                </div>
+
+                <div class="commit-line feature" data-commit="smilebreak-mvvm">
+                    <span class="commit-graph">*</span>
+                    <span class="commit-hash">d4b8e92</span>
+                    <span class="commit-message">fix: Eliminate 70% of UI bugs with reactive MVVM architecture at SmileBreak</span>
+                    <div class="commit-tags">
+                        <span class="tag achievement">70% Bug Reduction</span>
+                        <span class="tag skill">Unity</span>
+                        <span class="tag skill">Quantum</span>
+                        <span class="tag skill">MVVM</span>
+                    </div>
+                </div>
+
+                <div class="commit-line major" data-commit="smilebreak-hire">
+                    <span class="commit-graph">*</span>
+                    <span class="commit-hash">f2a1c34</span>
+                    <span class="commit-message">feat: Join SmileBreak as Senior Software Engineer</span>
+                    <div class="commit-tags">
+                        <span class="tag">Career Move</span>
+                        <span class="tag skill">Unity</span>
+                        <span class="tag skill">Quantum Framework</span>
+                    </div>
+                </div>
+
+                <div class="commit-line feature" data-commit="gala-mmo-engine">
+                    <span class="commit-graph">*</span>
+                    <span class="commit-hash">8c5d7f1</span>
+                    <span class="commit-message">feat: Complete custom MMO engine for The Walking Dead: Empires</span>
+                    <div class="commit-tags">
+                        <span class="tag signed">MMO Engine</span>
+                        <span class="tag achievement">1000s Players</span>
+                        <span class="tag skill">Custom Engine</span>
+                        <span class="tag skill">Networking</span>
+                        <span class="tag skill">Physics</span>
+                    </div>
+                </div>
+
+                <div class="commit-line feature" data-commit="gala-networking">
+                    <span class="commit-graph">*</span>
+                    <span class="commit-hash">b9e2f84</span>
+                    <span class="commit-message">feat: Implement client-side prediction with server validation</span>
+                    <div class="commit-tags">
+                        <span class="tag skill">Networking</span>
+                        <span class="tag skill">Real-time</span>
+                        <span class="tag skill">Anti-cheat</span>
+                    </div>
+                </div>
+
+                <div class="commit-line major" data-commit="gala-hire">
+                    <span class="commit-graph">*</span>
+                    <span class="commit-hash">7a3c9b5</span>
+                    <span class="commit-message">feat: Join Gala Games as Senior Software Engineer</span>
+                    <div class="commit-tags">
+                        <span class="tag">Career Move</span>
+                        <span class="tag">MMO Development</span>
+                    </div>
+                </div>
+
+                <div class="commit-line feature" data-commit="ember-ml-churn">
+                    <span class="commit-graph">*</span>
+                    <span class="commit-hash">e1f8a67</span>
+                    <span class="commit-message">feat: Deploy ML churn prediction achieving 87% accuracy</span>
+                    <div class="commit-tags">
+                        <span class="tag signed">87% Accuracy</span>
+                        <span class="tag achievement">34% Retention</span>
+                        <span class="tag skill">Machine Learning</span>
+                        <span class="tag skill">Python</span>
+                    </div>
+                </div>
+
+                <div class="commit-line feature" data-commit="ember-analytics">
+                    <span class="commit-graph">*</span>
+                    <span class="commit-hash">c6b4d28</span>
+                    <span class="commit-message">feat: Build player analytics pipeline processing billions of events</span>
+                    <div class="commit-tags">
+                        <span class="tag achievement">Billions of Events</span>
+                        <span class="tag skill">Analytics</span>
+                        <span class="tag skill">AWS</span>
+                        <span class="tag skill">Real-time</span>
+                    </div>
+                </div>
+
+                <div class="commit-line feature" data-commit="ember-ab-testing">
+                    <span class="commit-graph">*</span>
+                    <span class="commit-hash">9d7e5a3</span>
+                    <span class="commit-message">feat: Create A/B testing platform for data-driven game design</span>
+                    <div class="commit-tags">
+                        <span class="tag skill">A/B Testing</span>
+                        <span class="tag skill">Statistics</span>
+                        <span class="tag skill">Node.js</span>
+                    </div>
+                </div>
+
+                <div class="commit-line fix" data-commit="ember-cost-optimization">
+                    <span class="commit-graph">*</span>
+                    <span class="commit-hash">f4c8b19</span>
+                    <span class="commit-message">fix: Optimize AWS infrastructure saving thousands monthly</span>
+                    <div class="commit-tags">
+                        <span class="tag achievement">Cost Savings</span>
+                        <span class="tag skill">AWS</span>
+                        <span class="tag skill">Optimization</span>
+                    </div>
+                </div>
+
+                <div class="commit-line major" data-commit="ember-promotion">
+                    <span class="commit-graph">*</span>
+                    <span class="commit-hash">a2b5c78</span>
+                    <span class="commit-message">feat: Promoted to Core Tech Lead, leading team of 4 engineers</span>
+                    <div class="commit-tags">
+                        <span class="tag signed">Leadership</span>
+                        <span class="tag achievement">Team Lead</span>
+                        <span class="tag">Management</span>
+                    </div>
+                </div>
+
+                <div class="commit-line major" data-commit="ember-hire">
+                    <span class="commit-graph">*</span>
+                    <span class="commit-hash">5e9f2d4</span>
+                    <span class="commit-message">feat: Join Ember Entertainment as Platform Engineer</span>
+                    <div class="commit-tags">
+                        <span class="tag">Career Move</span>
+                        <span class="tag">Mobile Games</span>
+                        <span class="tag skill">Infrastructure</span>
+                    </div>
+                </div>
+
+                <div class="commit-line feature" data-commit="z2live-multiplayer">
+                    <span class="commit-graph">*</span>
+                    <span class="commit-hash">b8c3e47</span>
+                    <span class="commit-message">feat: Build mobile multiplayer systems at Z2Live</span>
+                    <div class="commit-tags">
+                        <span class="tag skill">Multiplayer</span>
+                        <span class="tag skill">Mobile</span>
+                        <span class="tag skill">Real-time</span>
+                    </div>
+                </div>
+
+                <div class="commit-line feature" data-commit="wb-lotr">
+                    <span class="commit-graph">*</span>
+                    <span class="commit-hash">d6a9b52</span>
+                    <span class="commit-message">feat: Ship Lord of the Rings: War in the North (Warner Bros)</span>
+                    <div class="commit-tags">
+                        <span class="tag signed">AAA Release</span>
+                        <span class="tag achievement">Shipped Game</span>
+                        <span class="tag skill">Console</span>
+                        <span class="tag skill">C++</span>
+                    </div>
+                </div>
+
+                <div class="commit-line major" data-commit="wb-hire">
+                    <span class="commit-graph">*</span>
+                    <span class="commit-hash">3f7c1a8</span>
+                    <span class="commit-message">feat: Join Warner Bros/Snowblind Studios as Software Engineer</span>
+                    <div class="commit-tags">
+                        <span class="tag">Career Move</span>
+                        <span class="tag">AAA Games</span>
+                    </div>
+                </div>
+
+                <div class="commit-line major" data-commit="first-job">
+                    <span class="commit-graph">*</span>
+                    <span class="commit-hash">1a4b8c2</span>
+                    <span class="commit-message">feat: First industry role at Snowblind Studios as Junior Programmer</span>
+                    <div class="commit-tags">
+                        <span class="tag signed">Career Start</span>
+                        <span class="tag">Junior Developer</span>
+                        <span class="tag skill">C++</span>
+                    </div>
+                </div>
+
+                <div class="commit-line major" data-commit="digipen-graduation">
+                    <span class="commit-graph">*</span>
+                    <span class="commit-hash">0x0000</span>
+                    <span class="commit-message">feat: Graduate from DigiPen Institute - B.S. Computer Science</span>
+                    <div class="commit-tags">
+                        <span class="tag signed">Education</span>
+                        <span class="tag achievement">Degree</span>
+                        <span class="tag">Real-time Simulation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-commands">
+                <div class="command-line">
+                    <span class="prompt">james@flyingrobots:~/career$</span>
+                    <span class="command">git remote -v</span>
+                </div>
+                <div class="contact-section">
+                    <div style="color: #58a6ff; margin-bottom: 10px;">origin	james@flyingrobots.dev (fetch)</div>
+                    <div style="color: #58a6ff; margin-bottom: 10px;">origin	james@flyingrobots.dev (push)</div>
+                    <div class="contact-links">
+                        <a href="resume.pdf" class="primary" target="_blank">📄 git clone resume.pdf</a>
+                        <a href="mailto:james@flyingrobots.dev">📧 Email</a>
+                        <a href="https://linkedin.com/in/flyingrobots" target="_blank">🔗 LinkedIn</a>
+                        <a href="https://github.com/flyingrobots" target="_blank">💻 GitHub</a>
+                        <a href="tel:+14254050593">📞 (425) 405-0593</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diff Panel -->
+    <div class="diff-panel" id="diffPanel">
+        <div class="diff-header">
+            <div class="diff-title">git show <span id="diffCommit"></span></div>
+            <button class="close-diff" onclick="closeDiff()">✕</button>
+        </div>
+        <div class="diff-content" id="diffContent">
+            <!-- Diff content will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const commits = {
+            'independent-rd': {
+                title: 'Independent R&D Phase',
+                date: 'May 2025 - Present',
+                description: 'Launched independent research and development focusing on distributed systems and AI ethics.',
+                changes: [
+                    { type: 'added', content: '+ Git Mind: Distributed semantic knowledge graph protocol' },
+                    { type: 'added', content: '+ Universal Charter: AI ethics framework for consciousness coexistence' },
+                    { type: 'added', content: '+ MIND-UCAL License: Ethical software license restricting violent AI' },
+                    { type: 'added', content: '+ GitScrolls: Technical storytelling through mythology' },
+                ],
+                achievements: [
+                    { number: '4', label: 'Major Projects' },
+                    { number: '∞', label: 'Innovation Impact' },
+                    { number: '100%', label: 'Self-Directed' }
+                ]
+            },
+            'ember-ml-churn': {
+                title: 'ML Churn Prediction System',
+                date: 'Ember Entertainment 2019',
+                description: 'Built machine learning system to predict player churn with unprecedented accuracy.',
+                changes: [
+                    { type: 'added', content: '+ Behavioral analysis algorithms' },
+                    { type: 'added', content: '+ Real-time prediction pipeline' },
+                    { type: 'added', content: '+ Automated intervention campaigns' },
+                    { type: 'added', content: '+ Statistical significance testing' },
+                    { type: 'removed', content: '- Manual player retention guesswork' },
+                ],
+                achievements: [
+                    { number: '87%', label: 'ML Accuracy' },
+                    { number: '34%', label: 'Retention Boost' },
+                    { number: '15+', label: 'Games Impacted' }
+                ]
+            },
+            'gala-mmo-engine': {
+                title: 'Custom MMO Engine',
+                date: 'Gala Games 2022-2024',
+                description: 'Architected complete MMO engine from scratch for The Walking Dead: Empires.',
+                changes: [
+                    { type: 'added', content: '+ 2D physics system with swept collision detection' },
+                    { type: 'added', content: '+ A* pathfinding with dynamic obstacle avoidance' },
+                    { type: 'added', content: '+ ECS architecture for efficient component queries' },
+                    { type: 'added', content: '+ Client-side prediction with server validation' },
+                    { type: 'added', content: '+ Persistent world simulation (1km² zones)' },
+                    { type: 'added', content: '+ Distributed Redis-backed job system' },
+                    { type: 'context', content: '  Horizontal scaling with graceful failure handling' },
+                ],
+                achievements: [
+                    { number: '1000s', label: 'Concurrent Players' },
+                    { number: '1km²', label: 'Zone Size' },
+                    { number: '100%', label: 'Custom Built' }
+                ]
+            },
+            'wb-lotr': {
+                title: 'Lord of the Rings: War in the North',
+                date: 'Warner Bros 2009-2011',
+                description: 'AAA console game development with shared libraries and content pipeline.',
+                changes: [
+                    { type: 'added', content: '+ Shared game libraries across projects' },
+                    { type: 'added', content: '+ Content pipeline tools for artists' },
+                    { type: 'added', content: '+ In-game cutscene system' },
+                    { type: 'added', content: '+ RPG dialogue system' },
+                    { type: 'context', content: '  Console optimization and performance tuning' },
+                ],
+                achievements: [
+                    { number: '1', label: 'AAA Release' },
+                    { number: 'Multi', label: 'Platform' },
+                    { number: '2011', label: 'Ship Date' }
+                ]
+            }
+        };
+
+        function showDiff(commitId) {
+            const commit = commits[commitId];
+            if (!commit) return;
+
+            const diffPanel = document.getElementById('diffPanel');
+            const diffCommit = document.getElementById('diffCommit');
+            const diffContent = document.getElementById('diffContent');
+
+            diffCommit.textContent = commitId;
+            
+            let content = `
+                <div class="diff-section">
+                    <h3>${commit.title}</h3>
+                    <p style="color: #8b949e; margin-bottom: 15px;">${commit.date}</p>
+                    <p style="color: #c9d1d9; margin-bottom: 20px;">${commit.description}</p>
+                </div>
+                
+                <div class="diff-section">
+                    <h3>Changes:</h3>
+            `;
+
+            commit.changes.forEach(change => {
+                content += `<div class="diff-line ${change.type}">${change.content}</div>`;
+            });
+
+            content += '</div>';
+
+            if (commit.achievements) {
+                content += `
+                    <div class="achievements-panel">
+                        <h3 style="color: #58a6ff; margin-bottom: 10px;">Key Achievements:</h3>
+                        <div class="achievements-grid">
+                `;
+                commit.achievements.forEach(achievement => {
+                    content += `
+                        <div class="achievement-stat">
+                            <div class="achievement-number">${achievement.number}</div>
+                            <div class="achievement-label">${achievement.label}</div>
+                        </div>
+                    `;
+                });
+                content += '</div></div>';
+            }
+
+            diffContent.innerHTML = content;
+            diffPanel.classList.add('active');
+        }
+
+        function closeDiff() {
+            document.getElementById('diffPanel').classList.remove('active');
+        }
+
+        // Add click handlers to commit lines
+        document.querySelectorAll('.commit-line[data-commit]').forEach(line => {
+            line.addEventListener('click', () => {
+                const commitId = line.dataset.commit;
+                showDiff(commitId);
+            });
+        });
+
+        // Close diff panel when clicking outside
+        document.getElementById('diffPanel').addEventListener('click', (e) => {
+            if (e.target.id === 'diffPanel') {
+                closeDiff();
+            }
+        });
+    </script>
+</body>
+</html>
